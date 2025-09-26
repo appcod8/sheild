@@ -158,12 +158,24 @@ const timer = setInterval(() => {
 }, 1000);
 
 // Dark mode toggle
+let darkMode = true; // initial mode is dark
+
 function toggleDark() {
   const body = document.body;
   const button = document.getElementById("launchButton");
   const darkToggle = document.querySelector(".dark-toggle");
 
-  if (body.style.background === 'white') {
+  if (darkMode) {
+    // Switch to light mode
+    body.style.background = 'white';
+    body.style.color = '#252525';
+    button.style.background = '#93c5fd'; // lighter blue
+    button.style.color = '#0a0a0a';
+    darkToggle.style.background = '#e5e7eb'; // light gray circle
+    darkToggle.style.color = '#0a0a0a';
+    darkToggle.innerText = '☀️';
+    darkMode = false;
+  } else {
     // Switch to dark mode
     body.style.background = '#0a0a0a';
     body.style.color = '#f5f5f5';
@@ -172,17 +184,12 @@ function toggleDark() {
     darkToggle.style.background = '#2563eb';
     darkToggle.style.color = '#fff';
     darkToggle.innerText = '🌛';
-  } else {
-    // Switch to light mode
-    body.style.background = 'white';
-    body.style.color = '#252525';
-    button.style.background = '#93c5fd'; // lighter blue for light mode
-    button.style.color = '#0a0a0a';
-    darkToggle.style.background = '#e5e7eb'; // light gray circle
-    darkToggle.style.color = '#0a0a0a';
-    darkToggle.innerText = '☀️';
+    darkMode = true;
   }
 }
+
+// Initialize icon
+document.querySelector(".dark-toggle").innerText = '🌛';
 </script>
 
 </body>
