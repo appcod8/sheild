@@ -160,6 +160,8 @@ const timer = setInterval(() => {
 // Dark mode toggle
 function toggleDark() {
   const body = document.body;
+  const button = document.getElementById("launchButton");
+  const darkToggle = document.querySelector(".dark-toggle");
 
   if (body.style.background === 'white') {
     // Switch to dark mode
@@ -167,13 +169,17 @@ function toggleDark() {
     body.style.color = '#f5f5f5';
     button.style.background = '#2563eb';
     button.style.color = '#fff';
+    darkToggle.style.background = '#2563eb';
+    darkToggle.style.color = '#fff';
     darkToggle.innerText = '🌛';
   } else {
     // Switch to light mode
     body.style.background = 'white';
     body.style.color = '#252525';
-    button.style.background = '#2563eb';
-    button.style.color = '#fff';
+    button.style.background = '#93c5fd'; // lighter blue for light mode
+    button.style.color = '#0a0a0a';
+    darkToggle.style.background = '#e5e7eb'; // light gray circle
+    darkToggle.style.color = '#0a0a0a';
     darkToggle.innerText = '☀️';
   }
 }
