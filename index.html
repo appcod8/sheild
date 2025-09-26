@@ -171,25 +171,24 @@ function toggleDark() {
     body.style.color = '#252525';
     button.style.background = '#93c5fd'; // lighter blue
     button.style.color = '#0a0a0c';
-    darkToggle.style.background = '#e5e7eb'; // light gray circle
+    darkToggle.style.background = '#e5e7eb';
     darkToggle.style.color = '#0a0a0a';
+    features.forEach(f => f.style.background = '#e5e7eb'); // light feature background
     darkToggle.innerText = '☀️';
     darkMode = false;
-features.forEach(f => f.style.background = '#111'); // dark features
-    } else {
-    // Switch to light mode
-    body.style.background = 'white';
-    body.style.color = '#252525';
-    button.style.background = '#93c5fd';
-    button.style.color = '#0a0a0a';
-    features.forEach(f => f.style.background = '#e5e7eb'); // light features
+  } else {
+    // Switch to dark mode
+    body.style.background = '#0a0a0a';
+    body.style.color = '#f5f5f5';
+    button.style.background = '#2563eb';
+    button.style.color = '#fff';
+    darkToggle.style.background = '#2563eb';
+    darkToggle.style.color = '#fff';
+    features.forEach(f => f.style.background = '#1e1e1e'); // dark feature background
     darkToggle.innerText = '🌛';
     darkMode = true;
   }
 }
-
-// Initialize icon
-document.querySelector(".dark-toggle").innerText = '🌛';
 </script>
 
 </body>
