@@ -1,52 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sheild Browser – Coming Soon</title>
-  <style>
-    body {
-      background: #0a0a0a;
-      color: #f5f5f5;
-      font-family: system-ui, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-    }
-    h1 { font-size: 3rem; margin-bottom: 1rem; }
-    #countdown { font-size: 2rem; margin-top: 1rem; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheild Browser – Coming Soon</title>
+<style>
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    background: #0a0a0a;
+    color: #f5f5f5;
+    padding: 1rem;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+  p { font-size: 1.25rem; max-width: 650px; margin-bottom: 1.5rem; opacity: 0.9; }
+
+  #countdown { font-size: 2rem; margin-bottom: 1rem; }
+
+  .button {
+    padding: 0.75rem 1.5rem;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+  .button:hover { background: #1d4ed8; }
+
+  .features {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    max-width: 900px;
+  }
+
+  .feature {
+    background: #111;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .feature span {
+    font-size: 1.5rem;
+  }
+
+  /* Dark mode toggle (demo) */
+  .dark-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
-  <h1>Sheild Browser</h1>
-  <p>A new way to browse the web – fast, private, and secure.</p>
-  <div id="countdown"></div>
 
-  <script>
-    // Set launch date
-    const launchDate = new Date("December 1, 2025 00:00:00").getTime();
+<button class="dark-toggle" onclick="toggleDark()">Dark Mode</button>
 
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
+<h1>Sheild Browser</h1>
+<p>The browser that gives you true control online — private, fast, and customizable. Launching soon!</p>
 
-      if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById("countdown").innerHTML = "Launched!";
-        return;
-      }
+<div id="countdown"></div>
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+<a id="launchButton" class="button">Coming Soon</a>
 
-      document.getElementById("countdown").innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
-  </script>
+<div class="features">
+  <div class="feature"><span>🌙</span> Dark Mode</div>
+  <div class="feature"><span>🚫</span> Built-in Ad & Tracker Blocker</div>
+  <div class="feature"><span>🔍</span> Custom Default Search Engines</div>
+  <div class="feature"><span>🏠</span> Custom Homepage View</div>
+  <div class="feature"><span>🧹</span> Clean History & Privacy</div>
+  <div class="feature"><span>⚡</span> Easy-to-Access Customizations</div>
+</div>
+
+<script>
+// Countdown
+const launchDate = new Date("October 1, 2025 12:00:00").getTime();
+const countdownEl = document.getElementById("countdown");
+const button = document.getElementById("launchButton");
+
+const timer = setInterval(() => {
+  const now = new Date().getTime();
+  const distance = launchDate - now;
+
+  if (distance <= 0) {
+    clearInterval(timer);
+    countdownEl.innerHTML = "Launched!";
+    button.innerText = "Download Now";
+    button.href = "#"; // replace with your download link
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}, 1000);
+
+// Dark mode toggle
+function toggleDark() {
+  const body = document.body;
+  if (body.style.background === 'white') {
+    body.style.background = '#0a0a0a';
+    body.style.color = '#f5f5f5';
+  } else {
+    body.style.background = 'white';
+    body.style.color = 'black';
+  }
+}
+</script>
+
 </body>
 </html>
