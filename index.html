@@ -112,15 +112,15 @@
 <button class="dark-toggle" onclick="toggleDark()"> </button>
 
 <h1>Sheild Browser</h1>
-<p>The new browser that gives you true control online — private, fast, secure, and customizable. Launching soon!</p>
+<p>The new browser that gives you true control online — private, fast, secure, and customizable. </p>
 
 <div id="countdown"></div>
 
-<a id="launchButton" class="button">Coming Soon</a>
+<a id="launchButton" class="button">Launching soon!</a>
 
 <div class="features">
-  <div class="feature"><span>🌙</span> Dark Mode</div>
-  <div class="feature"><span>🚫</span> Built-in Ads & Trackers Blocker</div>
+  <div class="feature"><span>🌙</span> Auto Dark Mode</div>
+  <div class="feature"><span>🚫</span> Built-in Trackers Ads Blocker</div>
   <div class="feature"><span>🔍</span> Custom Default Search Engines</div>
   <div class="feature"><span>🏠</span> Custom Homepage View</div>
   <div class="feature"><span>🧹</span> Easily View & Clean History Options</div>
@@ -158,7 +158,7 @@ const timer = setInterval(() => {
 }, 1000);
 
 // Dark mode toggle
-let darkMode = false; // initial mode is dark
+let darkMode = true; // initial mode is dark
 
 const features = document.querySelectorAll(".feature"); // add this at top
 
