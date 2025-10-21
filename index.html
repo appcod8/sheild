@@ -96,7 +96,18 @@
     background: #1d4ed8; 
     transform: scale(1.1);
   }
+  
+  img{
+    max-width:100%;display: width: 300px;           /* adjust image size */
+    border-radius: 12px;  /* rounded corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* soft shadow */
+    transition: transform 0.3s ease;        /* smooth hover effect */
+  }
+    img:hover {
+  transform: scale(1.05); /* zoom slightly on hover */
+  }
 
+  
   /* Responsive adjustments */
   @media (max-width: 600px) {
     h1 { font-size: 2rem; }
@@ -110,6 +121,10 @@
 <body>
 
 <button class="dark-toggle" onclick="toggleDark()"> </button>
+
+  body>
+  <h2>Example Image Display</h2>
+  <img src="//IMG_2025-10-21-113606.jpeg" style="width:80px;height:80px;border-radius:70%;object-fit:cover" alt="Sheild">
 
 <h1>Sheild Browser</h1>
 <p>The new browser that gives you true control online — private, fast, secure, and customizable. </p>
