@@ -40,8 +40,8 @@
 
   .button {
     padding: 0.7rem 1.5rem;
-    background: #2563eb;
-    color: #fff;
+    background: #2563ff;
+    color: #eee;
     border: none;
     border-radius: 0.5rem;
     font-size: 1.05rem;
@@ -103,7 +103,7 @@
     box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* soft shadow */
     transition: transform 0.3s ease;        /* smooth hover effect */
   }
-    img:hover {
+  img:hover {
   transform: scale(1.05); /* zoom slightly on hover */
   }
 
@@ -186,11 +186,12 @@ function toggleDark() {
     // Switch to light mode
     body.style.background = 'white';
     body.style.color = '#252525';
+   features.color = '#252525';
     button.style.background = '#93c5fd'; // lighter blue
     button.style.color = '#0a0a0c';
     darkToggle.style.background = '#e5e7eb';
     darkToggle.style.color = '#0a0a0a';
-    features.forEach(f => f.style.background = '#e5e7eb'); // light feature background
+    features.forEach(f => f.style.background = '#e5e7ff'); // light feature background
     darkToggle.innerText = '☀️';
     darkMode = false;
   } else {
