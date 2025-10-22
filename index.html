@@ -53,28 +53,6 @@
   .button:hover { background: #1d4ed8; }
 
   /* Features grid */
-  .features {
-    margin-top: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
-    max-width: 900px;
-    width: 100%;
-  }
-
-  .feature {
-   /* background: #1e1e1e; slightly lighter than #111 */
-  padding: 1rem;
-  border-radius: 0.5rem;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: transform 0.2s ease, background 0.3s;
-  }
-
-  .feature:hover { transform: translateY(-3px); }
-  .feature span { font-size: 1.5rem; }
 
   /* Dark mode toggle button */
   .dark-toggle {
@@ -146,7 +124,8 @@ Not ordinary browser completely free and never sellout users, no compromise. </p
 </div>
     
 
-<div class="features">
+<div style="font-family: -apple-system, sans-serif; line-height: 1.6; padding: 20px; max-width: 500px; margin: auto;">
+  <h2 style="text-align: left;">
   <div class=""><span>🌛</span> Auto Dark Mode</div>
   <div class=""><span>🚫</span> Built-in Trackers/Ads Blocker</div>
   <div class=""><span>🔍</span> Custom Default Search Engines</div>
