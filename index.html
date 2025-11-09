@@ -23,41 +23,27 @@
     transition: background 0.3s, color 0.3s;
   }
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+  /* Dark mode styles */
+  body.dark-mode {
+    background: white;
+    color: #252525;
   }
 
-  p {
-    font-size: 1.1rem;
-    max-width: 650px;
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
-  }
-
-  #countdown {
-    font-size: 2rem;
-    margin: 1rem 0 1rem 0;
-  }
-
-  .button {
-    padding: 0.7rem 1.5rem;
-    background: #2563cf;
+  /* Feature styles for both modes */
+  .feature {
+    font-size: 1rem;
     color: #7ac;
+    background: #436;
+    transition: background 0.3s, color 0.3s;
+    padding: 0.48rem 1.5rem;
     border: 1px solid #123;
     border-radius: 0.5rem;
-    font-size: 1.05rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s ease;
   }
 
-  .button:hover { background: #1d4ed8; }
-  .button span { font-size: 1.5rem; }
-
-  .feature { font-size: 1rem; color: #7ac; background: #436; transition: background 0.2s ease; padding: 0.48rem 1.5rem;
-    border: 1px solid #123;
-    border-radius: 0.5rem; } /* Features grid */   .feature span { font-size: 1.5rem; }
+  body.dark-mode .feature {
+    background: #e5e7ff;
+    color: #252525;
+  }
 
   /* Dark mode toggle button */
   .dark-toggle {
@@ -79,36 +65,12 @@
     background: #1d4ed8; 
     transform: scale(1.1);
   }
-  
-  img{
-    max-width:100%;display: width: 300px;           /* adjust image size */
-    border-radius: 12px;  /* rounded corners */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* soft shadow */
-    transition: transform 0.3s ease;        /* smooth hover effect */
-  }
-  img:hover {
-  transform: scale(1.05); /* zoom slightly on hover */
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 600px) {
-    h1 { font-size: 2rem; }
-    p { font-size: 1rem; }
-    #countdown { font-size: 1.5rem; }
-    .button { font-size: 1rem; padding: 0.6rem 1.2rem; }
-    .feature { font-size: 0.95rem; }
-  }
 </style>
 
-<!--  js 
-                   -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const darkToggle = document.querySelector(".dark-toggle");
   if (!darkToggle) return;
-
-  const features = document.querySelectorAll(".feature");
-  const button = document.getElementById("launchButton");
 
   // Set initial icon
   darkToggle.innerText = '🌛'; // dark mode default
@@ -126,11 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </head>
 <body>
 
-<button class="dark-toggle" onclick="toggleDark()"> </button>
-
-   
-
-    <div id="countdown"></div>
+<button class="dark-toggle"></button>
 
 <a href="https://apps.apple.com/us/app/sheild/id6753663434" target="_blank">
   <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" 
