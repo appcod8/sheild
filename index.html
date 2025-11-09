@@ -180,79 +180,28 @@ Not ordinary browser completely free and never sellout users, no compromise. </p
     
 </body>
 
-<!-- countdown js 
+<!--  js 
                    -->
 <script>
-// Initialize dark mode icon
 document.addEventListener("DOMContentLoaded", () => {
   const darkToggle = document.querySelector(".dark-toggle");
   if (!darkToggle) return;
 
-  darkToggle.innerText = '🌛'; // default dark mode
+  const features = document.querySelectorAll(".feature");
   const button = document.getElementById("launchButton");
-  const features = document.querySelectorAll(".feature"); // change selector to your elements
-  let darkMode = true; // initial mode is dark
+
+  // Set initial icon
+  darkToggle.innerText = '🌛'; // dark mode default
 
   darkToggle.addEventListener("click", () => {
-    const body = document.body;
+    document.body.classList.toggle("dark-mode");
+    const darkModeActive = document.body.classList.contains("dark-mode");
 
-    if (darkMode) {
-      // Switch to light mode
-      body.style.background = 'white';
-      body.style.color = '#252525';
-      if (button) {
-        button.style.background = '#93c5fd'; // lighter blue
-        button.style.color = '#0a0a0c';
-      }
-      darkToggle.style.background = '#e5e7eb';
-      darkToggle.style.color = '#0a0a0c';
-      features.forEach(f => f.style.background = '#e5e7ff');
-      darkToggle.innerText = '☀️';
-      darkMode = false;
-    } else {
-      // Switch to dark mode
-      body.style.background = '#0a0a0a';
-      body.style.color = '#f5f5f5';
-      if (button) {
-        button.style.background = '#2563eb';
-        button.style.color = '#fff';
-      }
-      darkToggle.style.background = '#2563eb';
-      darkToggle.style.color = '#fff';
-      features.forEach(f => f.style.background = '#1e1e1e');
-      darkToggle.innerText = '🌛';
-      darkMode = true;
-    }
+    // Toggle icon
+    darkToggle.innerText = darkModeActive ? '🌛' : '☀️';
   });
 });
-
-
-// Countdown logic
-// const launchDate = new Date("October 31, 2025 21:00:00").getTime();
-// const countdownEl = document.getElementById("countdown");
-// const button = document.getElementById("launchButton");
-
-// const timer = setInterval(() => {
-//  const now = new Date().getTime();
-//  const distance = launchDate - now;
-
-//  if (distance <= 0) {
-//    clearInterval(timer);
-//    countdownEl.innerHTML = "Launched!";
-//    button.innerText = "Download Now";
-//    button.href = "https://apps.apple.com/us/app/sheild/id6753663434"; // replace with actual download link
-    return;
-//  }
-//  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-//  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-//  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-//  countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-// }, 1000);
-
 </script>
 
-
-  
 </html>
 
