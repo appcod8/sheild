@@ -67,28 +67,31 @@
   }
 </style>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const darkToggle = document.querySelector(".dark-toggle");
-  if (!darkToggle) return;
-
-  // Set initial icon
-  darkToggle.innerText = '🌛'; // dark mode default
-
-  darkToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    const darkModeActive = document.body.classList.contains("dark-mode");
-
-    // Toggle icon
-    darkToggle.innerText = darkModeActive ? '🌛' : '☀️';
-  });
-});
-</script>
-
 </head>
+
 <body>
 
-<button class="dark-toggle"></button>
+
+  <button class="dark-toggle"></button>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const darkToggle = document.querySelector(".dark-toggle");
+      if (!darkToggle) return;
+
+      // Set initial icon
+      darkToggle.innerText = '🌛'; // dark mode default
+
+      darkToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        const darkModeActive = document.body.classList.contains("dark-mode");
+
+        // Toggle icon
+        darkToggle.innerText = darkModeActive ? '🌛' : '☀️';
+      });
+    });
+  </script>
 
 
 <a href="https://apps.apple.com/us/app/sheild/id6753663434" target="_blank">
@@ -105,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 Not ordinary browser completely free and never sellout users, no compromise. </p>
     
 <br>
+    <div class="feature">Features:</div>
 <div style="font-family: -apple-system, sans-serif; line-height: 1.6; padding: 20px; margin: 0 auto; text-align:left; ">
   <h3 class="button"><span>🌛</span> Auto Dark Mode</h3>
   <h3 class="button"><span>🚫</span> Built-in Trackers/Ads Blocker</h3>
