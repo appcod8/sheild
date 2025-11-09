@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheild Browser </title>
+  <meta name="description" content="Sheild Browser — fast, smart, and private, Works seamlessly, efficiently. Features: dynamic homepage views, multitabs, custom search engines, light smart auto dark mode. Built for ease of use, speed and privacy." />
+  <meta name="keywords" content="browser, fast, customizable, adblocker, tracker block, dynamic homepage wallpaper, auto dark mode, mutlitabs, bookmarks, private, surf, search" />
+<style>
+  /* Base styles */
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    background: #0a0a0a;
+    color: #f5f5f5;
+    padding: 1rem;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    max-width: 650px;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  #countdown {
+    font-size: 2rem;
+    margin: 1rem 0 1rem 0;
+  }
+
+  .button {
+    padding: 0.7rem 1.5rem;
+    background: #2563cf;
+    color: #7ac;
+    border: 1px solid #123;
+    border-radius: 0.5rem;
+    font-size: 1.05rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .button:hover { background: #1d4ed8; }
+  .button span { font-size: 1.5rem; }
+
+  .feature { font-size: 1rem; color: #7ac; background: #436; transition: background 0.2s ease; padding: 0.48rem 1.5rem;
+    border: 1px solid #123;
+    border-radius: 0.5rem; } /* Features grid */   .feature span { font-size: 1.5rem; }
+
+  /* Dark mode toggle button */
+  .dark-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 100;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .dark-toggle:hover { 
+    background: #1d4ed8; 
+    transform: scale(1.1);
+  }
+  
+  img{
+    max-width:100%;display: width: 300px;           /* adjust image size */
+    border-radius: 12px;  /* rounded corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* soft shadow */
+    transition: transform 0.3s ease;        /* smooth hover effect */
+  }
+  img:hover {
+  transform: scale(1.05); /* zoom slightly on hover */
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    p { font-size: 1rem; }
+    #countdown { font-size: 1.5rem; }
+    .button { font-size: 1rem; padding: 0.6rem 1.2rem; }
+    .feature { font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<button class="dark-toggle" onclick="toggleDark()"> </button>
+
+   
+
+    <div id="countdown"></div>
+
+<a id="launchButton" class="button">Launching countdown!</a>
+<br>
+  <img src="/IMG_2025-10-21-113606.jpeg" style="width:80px;height:80px;border-radius:50%;object-fit:content" alt="Sheild">
+
+<h1>Sheild Browser</h1>
+<p>Powerful. Private. Secure. Customizable.
+Not ordinary browser completely free and never sellout users, no compromise. </p>
+    
+<br>
+<div style="font-family: -apple-system, sans-serif; line-height: 1.6; padding: 20px; margin: 0 auto; text-align:left; ">
+  <h3 class="button"><span>🌛</span> Auto Dark Mode</h3>
+  <h3 class="button"><span>🚫</span> Built-in Trackers/Ads Blocker</h3>
+  <h3 class="button"><span>🔍</span> Custom Default Search Engines</h3>
+  <h3 class="button"><span>🏠</span> Custom Homepage View</h3>
+  <h3 class="button"><span>🧹</span> Easily View & Clean History Options</h3>
+  <h3 class="button"><span>⚡</span> Easy-to-Access Privacy & Settings</h3>
+  
+  <h3 class="feature"><span>⚡</span> More Features & Settings coming soon</h3>
+</div>
+
+    
+<div style="font-family: -apple-system, sans-serif; line-height: 1.6; padding: 20px; max-width: 600px; margin: auto;">
+  <h2 style="text-align: center;">Why Sheild is Different</h2>
+  <p>I was dissatisified with the level of the major apps disregarding user interest. 
+  Which is why I built this new browser that gives you true control online. It’s normal to feel a little nervous when a new app doesn’t yet have millions of users. Everyone always thinks the big players in tech, with top paid code professionals are flawless, but major browsers and platforms have embarrassing failures all the time: </p>
+  <ul>
+    <li>Google Chrome sometimes has memory leaks or freezes tabs.</li>
+    <li>Apple Safari occasionally loses tabs or breaks extensions.</li>
+    <li>Mozilla Firefox and Microsoft Edge have had lingering security bugs.</li>
+  </ul>
+  <p>Being 1 actually gives me an advantage: to experiment with features and polish the big browsers won’t. Your feedback helps grow smarter and faster!</p>
+  <p style="font-style: italic; text-align: center;">“Small apps, nimble features, and big ideas — one tap at a time.”</p>
+</div>
+    
+
+    <br>
+<div style="font-family: -apple-system, sans-serif; text-align: center; padding: 20px;">
+  
+<h2>Feedback & Suggestions</h2>
+    <p>Let's improve Sheild with your feedback. Share your ideas at:
+
+<p style="font-size: 16px; margin-bottom: 10px; ">
+  <a href="/support" target="_blank" style="text-decoration: none; color: #0386d6; font-weight: bold; display: inline-flex; align-items: center; "> 
+   🛠 Visit Support page </a>
+  </p>
+      
+<p style="font-size: 16px; margin-bottom: 10px; gap:4px;">
+    Visit our GitHub repository:
+  </p>
+  <a href="https://github.com/appcod8/sheild" target="_blank" style="text-decoration: none; color: #0386d6; font-weight: bold; display: inline-flex; align-items: center; "> <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 14px; height: 14px;">
+    - Sheild – Browser
+  </a>
+  
+    <br><br>    <!-- priducthunt
+                   -->  
+<a href="https://www.producthunt.com/products/sheild-browser?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-sheild&#0045;browser" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1033090&theme=light&t=1762041729336" alt="Sheild&#0032;Browser - A&#0032;fast&#0044;&#0032;customizable&#0032;browser&#0032;—&#0032;change&#0032;the&#0032;way&#0032;you&#0032;surf | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+    
+    <br><!-- 
+                   -->
+    <p style="margin-top: 2rem; font-size: 0.9rem; color: #555;">
+      © 2025 sheildbrowser.com — All rights reserved.  
+    </p> 
+</div>
+
+    
+</body>
+
+<!-- countdown js 
+                   -->
+<script>
+// Initialize dark mode icon
+const darkToggle = document.querySelector(".dark-toggle");
+darkToggle.innerText = '🌛'; // default: dark mode
+
+// Countdown logic
+const launchDate = new Date("October 31, 2025 21:00:00").getTime();
+const countdownEl = document.getElementById("countdown");
+const button = document.getElementById("launchButton");
+
+const timer = setInterval(() => {
+  const now = new Date().getTime();
+  const distance = launchDate - now;
+
+  if (distance <= 0) {
+    clearInterval(timer);
+    countdownEl.innerHTML = "Launched!";
+    button.innerText = "Download Now";
+    button.href = "https://apps.apple.com/us/app/sheild/id6753663434"; // replace with actual download link
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}, 1000);
+
+// Dark mode toggle
+let darkMode = true; // initial mode is dark
+
+const features = document.querySelectorAll(".feature"); // add this at top
+
+function toggleDark() {
+  const body = document.body;
+  const button = document.getElementById("launchButton");
+  const darkToggle = document.querySelector(".dark-toggle");
+
+  if (darkMode) {
+    // Switch to light mode
+    body.style.background = 'white';
+    body.style.color = '#252525';
+    button.style.background = '#93c5fd'; // lighter blue
+    button.style.color = '#0a0a0c';
+    darkToggle.style.background = '#e5e7eb';
+    darkToggle.style.color = '#0a0a0a';
+    features.forEach(f => f.style.background = '#e5e7ff'); // light feature background
+    darkToggle.innerText = '☀️';
+    darkMode = false;
+  } else {
+    // Switch to dark mode
+    body.style.background = '#0a0a0a';
+    body.style.color = '#f5f5f5';
+    button.style.background = '#2563eb';
+    button.style.color = '#fff';
+    darkToggle.style.background = '#2563eb';
+    darkToggle.style.color = '#fff';
+    features.forEach(f => f.style.background = '#1e1e1e'); // dark feature background
+    darkToggle.innerText = '🌛';
+    darkMode = true;
+  }
+}
+</script>
+
+
+  
+</html>
