@@ -183,7 +183,7 @@ const darkToggle = document.querySelector(".dark-toggle");
 darkToggle.innerText = '🌛'; // default: dark mode
 
 // Countdown logic
-const launchDate = new Date("October 31, 2025 21:00:00").getTime();
+const launchDate = new Date("January 1, 2026 00:00:00").getTime();
 const countdownEl = document.getElementById("countdown");
 const button = document.getElementById("launchButton");
 
@@ -193,7 +193,7 @@ const timer = setInterval(() => {
 
   if (distance <= 0) {
     clearInterval(timer);
-    countdownEl.innerHTML = "Launched!";
+    countdownEl.innerHTML = "Happy New Year 2026!";
     button.innerText = "Download Now";
     button.href = "https://apps.apple.com/us/app/sheild/id6753663434"; // replace with actual download link
     return;
