@@ -99,6 +99,30 @@
     .feature { font-size: 0.95rem; }
   }
 </style>
+
+<!--  js 
+                   -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const darkToggle = document.querySelector(".dark-toggle");
+  if (!darkToggle) return;
+
+  const features = document.querySelectorAll(".feature");
+  const button = document.getElementById("launchButton");
+
+  // Set initial icon
+  darkToggle.innerText = '🌛'; // dark mode default
+
+  darkToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const darkModeActive = document.body.classList.contains("dark-mode");
+
+    // Toggle icon
+    darkToggle.innerText = darkModeActive ? '🌛' : '☀️';
+  });
+});
+</script>
+
 </head>
 <body>
 
@@ -179,29 +203,6 @@ Not ordinary browser completely free and never sellout users, no compromise. </p
 
     
 </body>
-
-<!--  js 
-                   -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const darkToggle = document.querySelector(".dark-toggle");
-  if (!darkToggle) return;
-
-  const features = document.querySelectorAll(".feature");
-  const button = document.getElementById("launchButton");
-
-  // Set initial icon
-  darkToggle.innerText = '🌛'; // dark mode default
-
-  darkToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    const darkModeActive = document.body.classList.contains("dark-mode");
-
-    // Toggle icon
-    darkToggle.innerText = darkModeActive ? '🌛' : '☀️';
-  });
-});
-</script>
 
 </html>
 
