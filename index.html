@@ -184,41 +184,48 @@ Not ordinary browser completely free and never sellout users, no compromise. </p
                    -->
 <script>
 // Initialize dark mode icon
-const darkToggle = document.querySelector(".dark-toggle");
-darkToggle.innerText = '🌛'; // default: dark mode
-// Dark mode toggle
-let darkMode = true; // initial mode is dark
-
-
-function toggleDark() {
-  const body = document.body;
-  const button = document.getElementById("launchButton");
+document.addEventListener("DOMContentLoaded", () => {
   const darkToggle = document.querySelector(".dark-toggle");
+  if (!darkToggle) return;
 
-  if (darkMode) {
-    // Switch to light mode
-    body.style.background = 'white';
-    body.style.color = '#252525';
-    button.style.background = '#93c5fd'; // lighter blue
-    button.style.color = '#0a0a0c';
-    darkToggle.style.background = '#e5e7eb';
-    darkToggle.style.color = '#0a0a0a';
-    features.forEach(f => f.style.background = '#e5e7ff'); // light feature background
-    darkToggle.innerText = '☀️';
-    darkMode = false;
-  } else {
-    // Switch to dark mode
-    body.style.background = '#0a0a0a';
-    body.style.color = '#f5f5f5';
-    button.style.background = '#2563eb';
-    button.style.color = '#fff';
-    darkToggle.style.background = '#2563eb';
-    darkToggle.style.color = '#fff';
-    features.forEach(f => f.style.background = '#1e1e1e'); // dark feature background
-    darkToggle.innerText = '🌛';
-    darkMode = true;
-  }
-}
+  darkToggle.innerText = '🌛'; // default dark mode
+  const button = document.getElementById("launchButton");
+  const features = document.querySelectorAll(".feature"); // change selector to your elements
+  let darkMode = true; // initial mode is dark
+
+  darkToggle.addEventListener("click", () => {
+    const body = document.body;
+
+    if (darkMode) {
+      // Switch to light mode
+      body.style.background = 'white';
+      body.style.color = '#252525';
+      if (button) {
+        button.style.background = '#93c5fd'; // lighter blue
+        button.style.color = '#0a0a0c';
+      }
+      darkToggle.style.background = '#e5e7eb';
+      darkToggle.style.color = '#0a0a0c';
+      features.forEach(f => f.style.background = '#e5e7ff');
+      darkToggle.innerText = '☀️';
+      darkMode = false;
+    } else {
+      // Switch to dark mode
+      body.style.background = '#0a0a0a';
+      body.style.color = '#f5f5f5';
+      if (button) {
+        button.style.background = '#2563eb';
+        button.style.color = '#fff';
+      }
+      darkToggle.style.background = '#2563eb';
+      darkToggle.style.color = '#fff';
+      features.forEach(f => f.style.background = '#1e1e1e');
+      darkToggle.innerText = '🌛';
+      darkMode = true;
+    }
+  });
+});
+
 
 // Countdown logic
 // const launchDate = new Date("October 31, 2025 21:00:00").getTime();
