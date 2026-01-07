@@ -206,37 +206,117 @@ Not ordinary browser completely free and never sellout users, no compromise. </p
     
 
 
-<!-- countdown js 
+<!-- Countdown JS 
                    -->
 <script>
-// Initialize dark mode icon
-const darkToggle = document.querySelector(".dark-toggle");
-darkToggle.innerText = '🌛'; // default: dark mode
+/* =========================
+   HOLIDAY DEFINITIONS
+========================= */
 
-// Countdown logic
-const launchDate = new Date("Jan 1, 2026 00:00:00").getTime();
+const HOLIDAYS = [
+  // ✝️ Christian
+  {
+    name: "Christmas",
+    getDate: y => new Date(y, 11, 25),
+    message: () => "🎄 Merry Christmas!"
+  },
+  {
+    name: "Easter",
+    getDate: y => {
+      // Western Easter (Gregorian algorithm)
+      const f = Math.floor;
+      const a = y % 19;
+      const b = f(y / 100);
+      const c = y % 100;
+      const d = f(b / 4);
+      const e = b % 4;
+      const g = f((8 * b + 13) / 25);
+      const h = (19 * a + b - d - g + 15) % 30;
+      const j = f(c / 4);
+      const k = c % 4;
+      const m = (a + 11 * h) / 319 | 0;
+      const r = (2 * e + 2 * j - k - h + m + 32) % 7;
+      const n = (h - m + r + 90) / 25 | 0;
+      const p = (h - m + r + n + 19) % 32;
+      return new Date(y, n - 1, p);
+    },
+    message: () => "✝️ Happy Easter!"
+  },
+
+  // ✡️ Jewish (approximate Gregorian mapping)
+  {
+    name: "Rosh Hashanah",
+    getDate: y => new Date(y, 8, 15), // ~mid September
+    message: () => "✡️ Shanah Tovah!"
+  },
+  {
+    name: "Yom Kippur",
+    getDate: y => new Date(y, 8, 24), // ~late September
+    message: () => "✡️ G’mar Chatimah Tovah"
+  },
+
+  // 🧧 Chinese (approximate lunar)
+  {
+    name: "Chinese New Year",
+    getDate: y => new Date(y, 1, 5), // ~late Jan / early Feb
+    message: y => `🧧 Happy Lunar New Year ${y}!`
+  }
+];
+
+/* =========================
+   FIND NEXT HOLIDAY
+========================= */
+
+function getNextHoliday() {
+  const now = new Date();
+
+  return HOLIDAYS
+    .map(h => {
+      let date = h.getDate(now.getFullYear());
+      if (date < now) date = h.getDate(now.getFullYear() + 1);
+      return { ...h, date };
+    })
+    .sort((a, b) => a.date - b.date)[0];
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+const holiday = getNextHoliday();
+const targetTime = holiday.date.getTime();
+
 const countdownEl = document.getElementById("countdown");
 const button = document.getElementById("launchButton");
 
 const timer = setInterval(() => {
-  const now = new Date().getTime();
-  const distance = launchDate - now;
+  const now = Date.now();
+  const diff = targetTime - now;
 
-  if (distance <= 0) {
+  if (diff <= 0) {
     clearInterval(timer);
-    countdownEl.innerHTML = "Happy New Year 2026!";
+    countdownEl.innerHTML = holiday.message(holiday.date.getFullYear());
     button.innerText = "Download Now";
-    button.href = "https://apps.apple.com/us/app/sheild/id6753663434"; // replace with actual download link
+    button.href = "https://apps.apple.com/us/app/sheild/id6753663434";
     return;
   }
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff / 3600000) % 24);
+  const m = Math.floor((diff / 60000) % 60);
+  const s = Math.floor((diff / 1000) % 60);
 
-  countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  countdownEl.innerHTML = `
+    ${holiday.name} in ${d}d ${h}h ${m}m ${s}s
+  `;
 }, 1000);
+</script>
+
+<!-- dark mode JS  -->
+<script>
+// Initialize dark mode icon
+const darkToggle = document.querySelector(".dark-toggle");
+darkToggle.innerText = '🌛'; // default: dark mode
 
 // Dark mode toggle
 let darkMode = true; // initial mode is dark
