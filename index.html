@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheild Browser</title>
+<style>
+    /* Global Styles */
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: url('background.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: #111;
+    }
+
+    a { text-decoration: none; color: #007AFF; }
+
+    header {
+        text-align: center;
+        padding: 20px 10px 10px 10px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    /* Live Status Panel */
+    #live-status {
+        background: rgba(255,255,255,0.8);
+        backdrop-filter: blur(12px);
+        border-radius: 14px;
+        padding: 16px 24px;
+        max-width: 420px;
+        margin: 20px auto;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    #live-status strong { display: inline-block; width: 100px; }
+
+    #live-status ul {
+        margin: 4px 0 0 18px;
+        padding: 0;
+        list-style: disc;
+    }
+
+    /* Search / URL Bar */
+    #search-container {
+        max-width: 600px;
+        margin: 20px auto;
+        display: flex;
+        gap: 10px;
+    }
+
+    #urlBar {
+        flex: 1;
+        height: 44px;
+        border-radius: 12px;
+        border: none;
+        padding: 0 12px;
+        backdrop-filter: blur(10px);
+        background: rgba(255,255,255,0.6);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        font-size: 16px;
+    }
+
+    #searchBtn {
+        width: 50px;
+        border: none;
+        border-radius: 12px;
+        background-color: #007AFF;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    /* Popular sites / grid */
+    #sites-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 16px;
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 0 10px;
+    }
+
+    .site-card {
+        background: rgba(255,255,255,0.7);
+        backdrop-filter: blur(8px);
+        border-radius: 12px;
+        text-align: center;
+        padding: 12px 6px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        transition: transform 0.15s ease;
+    }
+
+    .site-card:hover { transform: translateY(-4px); }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Sheild Browser</h1>
+</header>
+
+<!-- Live Version & Status Panel -->
+<div id="live-status">
+    <div><strong>Version:</strong> <span id="app-version">1.6.1</span> (Build <span id="build-number">42</span>)</div>
+    <div><strong>Cloud AI:</strong> <span id="cloud-status">Online ✅</span></div>
+    <div><strong>Local LLM:</strong> <span id="local-status">Ready ✅</span></div>
+    <div><strong>Known Issues:</strong>
+        <ul id="issues-list">
+            <li>Minor UI glitch on iPad</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Search / URL bar -->
+<div id="search-container">
+    <input type="text" id="urlBar" placeholder="Search or enter URL...">
+    <button id="searchBtn">Go</button>
+</div>
+
+<!-- Popular Sites Grid -->
+<div id="sites-grid">
+    <div class="site-card"><a href="https://www.google.com" target="_blank">Google</a></div>
+    <div class="site-card"><a href="https://www.youtube.com" target="_blank">YouTube</a></div>
+    <div class="site-card"><a href="https://www.reddit.com" target="_blank">Reddit</a></div>
+    <div class="site-card"><a href="https://www.wikipedia.org" target="_blank">Wikipedia</a></div>
+    <div class="site-card"><a href="https://www.twitter.com" target="_blank">Twitter</a></div>
+    <div class="site-card"><a href="https://www.facebook.com" target="_blank">Facebook</a></div>
+</div>
+
+<script>
+    // Example: dynamic live info
+    const liveData = {
+        version: "1.6.1",
+        build: 42,
+        cloudAI: "Online ✅",
+        localLLM: "Ready ✅",
+        issues: [
+            "Minor UI glitch on iPad",
+            "Temporary AI fallback delay"
+        ]
+    };
+
+    document.getElementById("app-version").textContent = liveData.version;
+    document.getElementById("build-number").textContent = liveData.build;
+    document.getElementById("cloud-status").textContent = liveData.cloudAI;
+    document.getElementById("local-status").textContent = liveData.localLLM;
+
+    const issuesList = document.getElementById("issues-list");
+    issuesList.innerHTML = "";
+    liveData.issues.forEach(issue => {
+        const li = document.createElement("li");
+        li.textContent = issue;
+        issuesList.appendChild(li);
+    });
+</script>
+
+</body>
+</html>
