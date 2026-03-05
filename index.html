@@ -242,7 +242,8 @@ html {
 
 <br>
   
- <div style="text-align:center; padding:15px; width: 100%; margin: 0 auto; display: ruby;">
+ <div style="text-align:center; border-radius: 10px; padding: 15px; line-height: 1.5em; display: flex; flex-direction: row; justify-content: center; align-items: center;
+    text-align: center; margin: 0 auto;">
   <img src="/IMG_2025-11-11-120318.jpeg" style="width:80px;height:80px;border-radius:50%;object-fit:content" alt="Sheild">
     <br>
   <a href="https://apps.apple.com/us/app/sheild/id6753663434" target="_blank">
@@ -449,6 +450,7 @@ I’d love your feedback — every suggestion helps improve it. Thanks for tryin
 
      <!--       footer            -->
   <footer>
+    
        <!-- Minimal Bookmarks Bar -->
     <div id="bookmark-bar">
       <button>SpaceEdge</button>
@@ -553,6 +555,7 @@ I’d love your feedback — every suggestion helps improve it. Thanks for tryin
     setInterval(fetchLiveStatus, 60000);
 </script>
 
+        
 <!-- Countdown JS 
                    -->
 <script>
@@ -722,7 +725,6 @@ function toggleDark() {
     },{threshold:.15});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-
 // Searchbox Input Engines logic
 // query persistence 
 // --- Search Elements --- 
@@ -741,7 +743,6 @@ if (savedEngine) engineSelect.value = savedEngine;
 engineSelect.addEventListener("change", () => {
     localStorage.setItem(SEARCH_ENGINE_KEY, engineSelect.value);
 });
-
 
 // --- Setup query history ---
 let queryHistory = JSON.parse(localStorage.getItem(QUERY_HISTORY_KEY) || "[]");
@@ -947,7 +948,7 @@ queryInput.addEventListener("keydown", (e) => {
 });
 
 
-    // Bookmarks
+  // Bookmarks
     const bookmarks=[{name:"SpaceEdge",url:"https://spaceedge.com"},{name:"Sheild",url:"https://sheildbrowser.com"},{name:"Sheild",url:"https://sheildbrowser.com"}];
     document.querySelectorAll("#bookmark-bar button").forEach((btn,i)=>btn.addEventListener("click",()=>window.open(bookmarks[i].url,"_self")));
 
@@ -967,13 +968,13 @@ queryInput.addEventListener("keydown", (e) => {
     window.addEventListener("scroll",checkSlideUp); window.addEventListener("load",checkSlideUp);
   </script>
 
-  <!-- Optional floating toolbar -->
+  <!-- Optional floating toolbar
   <div class="toolbar" style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:12px;padding:8px 16px;background:rgba(255,255,255,0.95);border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:999;">
     <button id="backBtn" style="padding:8px 12px;border:none;background:#eee;border-radius:8px;font-size:1rem;">←</button>
     <button id="forwardBtn" style="padding:8px 12px;border:none;background:#eee;border-radius:8px;font-size:1rem;">→</button>
     <button id="homeBtn" style="padding:8px 12px;border:none;background:#eee;border-radius:8px;font-size:1rem;">🏠</button>
     <button id="tabsBtn" style="padding:8px 12px;border:none;background:#eee;border-radius:8px;font-size:1rem;">Tabs</button>
-  </div>
+  </div> -->
   <script>
     document.getElementById("homeBtn").addEventListener("click",()=>location.href="/");
     document.getElementById("backBtn").addEventListener("click",()=>history.back());
