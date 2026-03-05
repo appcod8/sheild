@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sheild:Anon:AllSearch:Browser.</title>
+<meta name="description" content="Sheild Anon All Search Private Incognito Browser — fast, all search engines. Search seamlessly, lightweight built for speed, and privacy." />
+<meta name="keywords" content="sheild, web browser app, all search engines, anonomous, incognito, private, secure" />
+<link rel="icon" href="/favicon.ico" />
+<style>
+:root{
+  --brand-1:#5b7cfa; --brand-2:#00d4ff; --text:#0b1220; --muted:#5b6578;
+  --bg:#ffffff; --card:#f6f8ff; --radius:16px; --ring:0 0 0 3px rgba(91,124,250,.35);
+} 
+* {box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Header + Nav */ 
+header {
+  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);
+  backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid rgba(10,20,40,.06);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;gap:12px;align-items:center;font-weight:800;letter-spacing:.2px}
+.brand-logo{width:28px;height:28px;border-radius:8px;
+  background:linear-gradient(135deg,var(--brand-1),var(--brand-2));box-shadow:0 6px 20px rgba(91,124,250,.95)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:12px;
+  border:1px solid rgba(10,20,40,.1);background:#fff;cursor:pointer;font-weight:600}
+.btn.primary{background:linear-gradient(135deg,var(--brand-1),var(--brand-2));color:#fff;border:none;box-shadow:0 8px 24px rgba(91,124,250,.35)}
+.btn.primary:focus{outline:var(--ring)}
+.btn.ghost{background:transparent}  
+    
+.hero {
+  height: 180px; width:100%; max-width: 500px; 
+  margin:0 auto; padding:0;
+  display: block; 
+  justify-content: left;
+  align-items: ;
+  text-align: left;
+  color: #eee; background-color: #888; /* col */
+}
+.hero a {
+  position: relative;
+  z-index: 10; /* makes sure clickable above background/other layers */
+}
+
+  /* HERO #1 — David & Goliath (separate class to avoid collisions) */
+.hero-dg {
+  height: 70vh;  /* full screen height 
+  position: relative; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  /* background: url("/dg.jpg") no-repeat center top; */
+  background-size: contain; /* cover for entire image */
+  background-color: #111; /* fallback background */
+  transition: background-size 0.6s ease; /* smooth effect */ 
+}
+
+.hero-dg.full-view {
+  background-size: contain;  /* full image on scroll */
+  background-position: top center;
+}
+.hero-dg::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.55)}
+.hero-dg .hero-content{position:relative;z-index:1;max-width:820px;padding:20px}
+.hero-dg h1{font-size:clamp(32px,6vw,64px);margin:0 0 12px}
+.hero-dg p{font-size:clamp(16px,2.2vw,22px);margin:0 0 22px}
+.cta-btn{background:#ff4b2b;border:none;padding:14px 26px;font-size:1rem;color:#fff;border-radius:10px;cursor:pointer;text-decoration:none;transition:background .25s}
+.cta-btn:hover{background:#ff6f56}
+
+/* HERO #2 — Product intro */
+.hero-product{position:relative;padding:72px 0 36px;text-align:center}
+.tag{display:inline-block;padding:6px 10px;border-radius:999px;
+  background:linear-gradient(135deg,rgba(91,124,250,.16),rgba(0,212,255,.16));border:1px solid rgba(10,20,40,.08);
+  font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase}
+.hero-product h1{font-size:clamp(28px,5vw,56px);line-height:1.05;margin:16px 0 12px}
+.hero-product p{font-size:clamp(16px,2.2vw,20px);color:var(--muted);max-width:760px;margin:0 auto}
+.cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:22px 0 28px}
+.subtext{font-size:14px;color:var(--muted)}
+
+/* Sections / cards */
+.section{padding:60px 0}
+.section h2{font-size:clamp(22px,3.6vw,36px);margin:0 0 10px;text-align:left}
+.section p.lead{color:var(--muted);max-width:760px}
+.grid{display:grid;gap:16px}
+@media (min-width: 740px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--card);border:1px solid rgba(10,20,40,.08);border-radius:var(--radius);padding:18px;transition:transform .25s, box-shadow .25s}
+.card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(16,24,40,.1)}
+.icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand-1),var(--brand-2));box-shadow:0 8px 20px rgba(91,124,250,.35)}
+.card h3{margin:10px 0 6px;font-size:18px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+
+/* “sheildBrowser” mock frame (used in articles if needed) */
+.screen{border-radius:16px;border:1px solid rgba(10,20,40,.08);overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(16,24,40,.08)}
+.screen .chrome{display:flex;gap:8px;align-items:center;padding:8px 10px;background:linear-gradient(180deg,#f9fbff,#f0f4ff);border-bottom:1px solid rgba(10,20,40,.06)}
+.dot{width:10px;height:10px;border-radius:50%;background:#d9dde7}
+.url{flex:1;height:32px;border-radius:8px;border:1px solid rgba(10,20,40,.1);background:#fff;padding:0 12px;display:flex;align-items:center;color:#6b7486;font-size:14px}
+
+/* Article styles */
+article{max-width:820px;margin:0 auto}
+.page-title{text-align:center;margin-bottom:10px}
+blockquote{margin:20px 0;padding:15px 20px;background:#f0f0f0;border-left:5px solid #0070c9;font-style:italic}
+.article-meta{color:var(--muted);font-size:14px;margin-bottom:16px;text-align:center}
+
+/* FAQ / Footer */
+details{background:var(--card);border:1px solid rgba(10,20,40,.08);border-radius:14px;padding:14px}
+summary{cursor:pointer;font-weight:700}
+details p{color:var(--muted)}
+footer{padding:40px 0;border-top:1px solid rgba(10,20,40,.06);color:var(--muted)}
+
+/* Animations */
+.reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion: reduce){.card:hover{transform:none}.reveal{transition:none}}
+
+/* Search bars under header */
+#search-container{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px;background-color:#6200EE;color:#fff;justify-content:center}
+#bookmark-bar{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px;justify-content:center;background-color:#f5f5f5}
+#bookmark-bar button{padding:6px 10px;border-radius:6px;border:none;background-color:#BB86FC;color:#000;font-size:14px;cursor:pointer}
+#bookmark-bar button:active{background-color:#9C47FF } 
+    
+html {
+  font-size: 75%;
+   }
+   
+#countdown {
+    font-size: 2rem;
+    margin: 1rem 0 1rem 0;
+}
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    p { font-size: 1rem; }
+    #countdown { font-size: 1.5rem; }
+    .button { font-size: 1rem; padding: 0.6rem 1.2rem; }
+    .feature { font-size: 0.95rem; }
+  }
+  
+  /* Live Status Panel */
+    #live-status {
+        background: rgba(125,125,125,0.55);
+        backdrop-filter: blur(12px);
+        border-radius: 14px;
+        padding: 16px 24px;
+        max-width: 420px;
+        margin: 20px auto;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        text-align: left; /* force left-align inside panel */
+}
+
+#live-status strong { display: inline-block; width: 100px; vertical-align: top; }
+#live-status ul { margin: 4px 0 0 18px; padding: 0; list-style: disc; }
+#live-status pre { white-space: pre-wrap; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+
+/* Search / URL Bar */
+    
+  </style>
+  
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div  class="brand" >
+        <div  class="brand-logo" aria-hidden="true"></div>
+        <a href="#top" style="padding: 0 5px 0 0; margin-left:-5px;" aria-label="SheildBrowser">Search</a>
+      </div> 
+   <nav class="nav-actions">
+        <a class="btn ghost" href="#features">Features</a>
+        <a class="btn primary" href="https://sheildbrowser.com">Sheild</a>
+        <!-- <a class="btn ghost" href="#download" id="downloadButton">Get Sheild</a>  -->
+      </nav>
+    </div>
+
+   
+   <!-- Search Container 
+    flex:1;min-width:150px; autocorrect="on" spellcheck="true"    -->
+    <div id="search-container">
+      <input type="text" id="search-query" placeholder="Search Sheild..." style=" display:block; min-width:250px; width:0 auto; padding:8px; border-radius:6px;border:none;font-size:16px;">
+    <select id="search-engine" style="padding:6px 8px;border-radius:6px;border:none;font-size:14px;">
+        <option value="https://www.google.com/search?q=">Google</option>  
+        <option value="https://www.bing.com/search?q=">Bing</option>
+        <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
+        <option value="https://claude.ai/new?q=">Claude</option>
+        <option value="https://kagi.com/?q=">Kagi</option>
+        <option value="https://swisscows.com/web?query=">Swisscows</option>
+        <option value="https://www.ecosia.org/search?q=">Ecosia</option>
+        <option value="https://www.yandex.com/search/?text=">Yandex</option>
+        <option value="https://www.baidu.com/s?wd=">Baidu</option>
+        <option value="https://www.wikipedia.org/w/index.php?search=">Wikipedia</option>
+        <option value="https://github.com/search?q=">GitHub</option>
+        <option value="https://stackoverflow.com/search?q=">StackOverflow</option>
+        <option value="https://stackexchange.com/search?q=">StackExchange</option>
+        <option value="https://www.startpage.com/do/search?query=">Startpage</option>
+        <option value="https://www.mojeek.com/search?q=">Mojeek</option>
+        <option value="https://www.qwant.com/?q=">Qwant</option>
+        <option value="https://search.yahoo.com/search?p=">Yahoo</option>
+    </select>
+    <button id="search-button" style="padding:8px 16px;border-radius:8px;border:none;background-color:#FFD600;color:#000;font-weight:bold;font-size:16px;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.3);">Go</button>
+    </div>
+
+  </header>
+
+  <main id="top">
+
+<!-- HERO #1a: Sheild  Sheild Browser Launch -->
+<!--<div class="hero">
+  <h1>🚀 New: <span class="highlight">Sheild Browser</span></h1>
+  <ul class="features">
+  <li>👉<strong> Adblock. ark Mode.</strong></li> <li>👉<strong> Dynamic, Private, No opt-ins. </strong></li>
+  </ul>
+</div>. -->
+
+
+ <!-- HERO #2: Product intro     <h1>Sheild.</h1>  -->
+    <section class="hero-product container">
+      <span class="tag">Fast • Private • Lightweight</span>
+
+  
+   <iframe width="40" height="30" 
+    src="https://apps.apple.com/us/app/sheildsearch-all-anon-browser/id6751072539" 
+    title="sheild video" frameborder="0" allow=" web-share">
+   </iframe>
+
+
+
+ <!-- Sheild  intro -->
+ 
+<div > 
+    
+<div id="countdown"></div>
+
+<a id="launchButton" class="button">New Holiday Countdown!</a>
+
+<br>
+ <div style="text-align:center; padding:15px; margin:15px;">
+  <img src="/IMG_2025-11-11-120318.jpeg" style="width:80px;height:80px;border-radius:50%;object-fit:content" alt="Sheild">
+
+    <br>
+  <a href="https://apps.apple.com/us/app/sheild/id6753663434" target="_blank">
+  <img src="/appstore.png" 
+       alt="Download on the App Store" style="height:60px;">
+</a>
+</div>
+
+
+<h1>Sheild Browser</h1>
+<p>Powerful 🔥 Private • AI • Fast & Safe. <br>
+Not ordinary browser and never sellout users, no compromise. </p>
+
+
+<!-- Live Version & Status Panel -->
+<div id="live-status">
+   <h2>Live stats</h2>
+    <div><strong>Version:</strong> <span id="app-version">–</span> (45) </div>
+
+<div><strong>• Cloud AI:</strong> Online<br>
+  <strong>• Local LLM:</strong> Ready</div>
+  
+    <div><strong>• Known Issues:</strong>
+        <ul>
+            <li>Update now to latest version </li>
+            <li>Fixes and major improvements in this new release download now.</li>
+        </ul>
+    </div>
+<br>
+        <div><strong>What’s New:</strong> <pre id="release-notes">Loading…</pre></div>
+        
+   </div>
+    
+    <!-- live Ai stats need server
+    <div><strong>Cloud AI:</strong> <span id="cloud-status">–</span></div>
+    <div><strong>Local LLM:</strong> <span id="local-status">–</span></div>
+    <div><strong>Known Issues:</strong>
+        <ul id="issues-list">
+            <li>Loading…</li>
+        </ul>
+    </div>
+    -->
+    
+</div>
+
+
+
+  
+     <section id="manifesto" class="section">
+      <article class="container">
+        
+          <h2>Browse faster. Search smarter. Keep your data yours.</h2>
+      <p>Designed for speed and privacy. <b>The interface that has revolutionized the way we interact & search the Web. </b> Making it an immersive, engaging online journey.  </p>
+ 
+      <div class="cta">
+        <a class="btn primary" href="#download">Get Sheild Browser</a>
+        <a class="btn" href="#how">See how it works</a>
+      </div>
+      
+    
+ <div style="">
+  ❎ No Spyware, Adware, Telemetry, or any Opt-ins, baked-in. <p>
+    
+“Most browsers and apps today ship bloat: ad SDKs, telemetry, analytics, device fingerprinting, background sync, cross-app tracking, over-permissioned hooks, and opaque referral scripts — all silently harvesting data.”</p>
+
+  <h2 style="text-align: center;">Why Sheild is Different. <span style="font-style: italic; text-align: center;"> The browser built for speed, simplicity, and trust.</span> </h2>
+  
+  <p>I was dissatisified with the level of bloat, the major apps disregard for users. 
+  Which is why I built Sheild solo, with no corporation behind it, for true freedom online. to be a truly private browser. It’s fast, has a dynamic homepage, AI actions, find-in-page, and blocks trackers/ads by default.
+
+I’d love your feedback — every suggestion helps improve it. Thanks for trying Sheild!
+  It’s normal to feel a little nervous when a new app doesn’t yet have millions of users. Everyone always thinks the big players in tech, with top paid code professionals are flawless, but major browsers and platforms have failures all the time: </p>
+  <ul>
+    <li>Chrome, Safari & others: sometimes have memory leaks, lose tabs, break extensions, pre-bundled bloat; security privacy bugs.</li>
+  </ul>
+  
+  <div class="main">
+<p>The biggest differentiators. Most top browsers or “top apps” quietly run tracking scripts, ad networks, and analytics, even when they call it “private” or “recommended.” </p>
+  
+  <h2>Sheild browser is radically different and trustworthy:</h2>
+
+<ul>
+  <li><strong>No background tracking</strong> — No collecting of user data, analytics, or browsing habits.</li>
+  <li><strong>No ads injected</strong> — affiliate links or static, no popups, banners, or scripts.</li>
+  <li><strong>Fully transparent</strong> —  “Top Picks” or are optional links.</li>
+  <li><strong>Privacy-first design</strong> — the core philosophy (Fast, & Secure) extends to every dynamic element.</li>
+</ul>
+
+<p>⚠️ <strong>Emphasis:</strong> — because users are tired of “free” apps secretly harvesting their data.</p>
+
+<blockquote>
+<p>💡 <strong> “Sheild a Browser you can trust.  </strong> No ads. No trackers. Just power — fully transparent, fully private.”💡</p>
+</blockquote>
+
+<p>It’s not just features — it’s value true proposition that separates from others.</p>
+
+<p>Highlights: dynamic picks + transparency + privacy-first — immediate function.</p>
+
+    This gave me an advantage: to experiment with features and polish others apps waste on bloat spyware and adware.
+  
+  <p>Sheild achieves functional minimalism by:</p>
+  
+<ul>
+  <li><strong>Essential-first design</strong> &mdash; keeping only what matters and ensuring it just works without friction.</li>
+  <li><strong>The only truly Private Powerhouse browser</strong>&mdash; Fast & Safe.</li>
+  <li><strong>No ads. trackers. popups, or opt-ins. </strong> Your data stays private — always.</li>
+  <li><strong>Private Browser & AI. Fully transparent.</strong> Optional links curated for convenience and safety.</li>
+  <li><strong>Coming soon: </strong>Advanced power features.</li>
+
+</ul>
+
+  <p style="font-style: italic; text-align: center;">“Small apps, nimble features, and big ideas — one tap at a time.”</p>
+
+  </div>     
+    
+    </section>
+
+
+    <!-- ARTICLE : Transparency / App Store visibility -->
+    <section id="transparency" class="section" style="background:linear-gradient(180deg,#fbfdff,#f2f6ff)">
+      <article class="container">
+        <h2 class="page-title">Why You Can’t Find Sheild Browser on the App Store</h2>
+        <div class="article-meta">Transparency note on App Store keyword visibility and competition.</div>
+        <p><strong>Even though Sheild Browser is fully approved, it’s effectively invisible in App Store keyword searches.</strong></p>
+        <p>Search for “browser” on the App Store and you won’t see it. Other apps in the same category appear — but ours doesn’t. Users can only find Sheild Browser if they know the exact name.</p>
+        <h3>Why This Matters</h3>
+        <ul>
+          <li><strong>Mandatory $99 Annual Fee:</strong> Developers must pay to keep apps available, even if Apple is withholding earnings.</li>
+          <li><strong>Opaque Review Process:</strong> Updates and bug fixes can be delayed unpredictably, while Apple’s own apps face no such restrictions.</li>
+          <li><strong>Keyword Suppression:</strong> Limits discoverability and stifles innovation.</li>
+        </ul>
+        <p>A formal complaints filed with both the <strong>FTC</strong> and the <strong>DOJ</strong> about these practices.</p>
+        <blockquote>“Sheild Browser is fully approved, but buried in App Store search results, making it invisible to users searching for ‘browser.’ Apple’s control effectively erases new competitors, favoring entrenched apps and limiting consumer choice.”</blockquote>
+        <p>We believe in <strong>transparency, fairness, and innovation</strong>. If you’re a developer experiencing similar issues, document your experience and consider reporting it — your voice matters.</p>
+      </article>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="section container">
+      <h2 style="text-align:center;">Built for power users. Perfect for everyone.</h2>
+      <p class="lead">Stay fast and focused with a browser that cuts friction. Sheild brings multi-engine search, custom shortcuts, and optional AI together in a clean, minimalist UI.</p>
+      <div class="grid cols-3" style="margin-top:18px">
+        <div class="card reveal"><div class="icon" aria-hidden="true"></div><h3>Lightning-fast performance</h3><p>Instant startup, snappy tabs, and smooth scrolling—optimized from first paint to page load.</p></div>
+        <div class="card reveal"><div class="icon" aria-hidden="true"></div><h3>Multi-engine search</h3><p>Search Google, DuckDuckGo, YouTube, Wikipedia and more—without extensions.</p></div>
+        <div class="card reveal"><div class="icon" aria-hidden="true"></div><h3>Night Mode tzldm</h3><p>Works on your favorite sites, tweaks the UI to fit your flow.</p></div>
+        <div class="card reveal"><div class="icon" aria-hidden="true"></div><h3>AI-ready when you are</h3><p>Private llm ChatGPT integration for smarter queries and summaries enabled. Your data stays on your device</p></div>
+        <div class="card reveal"><div class="icon" aria-hidden="true"></div><h3>Dynamic modes</h3><p>Work in a focused full-tab quick actions experience. Your choice, your rhythm.</p></div>
+        <div class="card reveal"><div class="icon" aria-hidden="true"></div><h3>Privacy-first</h3><p>Ads tracking block  built-in. No accounts. No bloat.</p></div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section" style="background:linear-gradient(180deg,#fbfdff,#f2f6ff)">
+      <div class="container">
+        <h2>How it works</h2>
+        <p class="lead">Sheild blends a clean UI with powerful tools. Here’s a quick look at the flow.</p>
+        <div class="grid cols-2" style="margin-top:18px">
+          <div class="screen reveal">
+            <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="url">omnibox: type once, search anywhere</div></div>
+            <div style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:#94a3b8">GIF/Video: omnibox with multi-engine results</div>
+          </div>
+          <div class="screen reveal">
+            <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="url">Tabbed mode: quick tasks, zero friction</div></div>
+            <div style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:#94a3b8">GIF/Video: popup workflow & shortcuts</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY / TRUST -->
+    <section id="privacy" class="section container">
+      <h2>Privacy that’s real, not a checkbox</h2>
+      <div class="grid cols-3" style="margin-top:18px">
+        <div class="card reveal"><h3>No tracking</h3><p>We don’t collect your browsing data. Period.</p></div>
+        <div class="card reveal"><h3>No accounts</h3><p>Use Sheild without sign-ups, logins, or lock-in.</p></div>
+        <div class="card reveal"><h3>No bloat</h3><p>Lightweight by design—saves memory and battery.</p></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section container">
+      <h2>FAQ</h2>
+      <div class="grid cols-2" style="margin-top:10px">
+        <details class="reveal"><summary>Is Sheild private and free?</summary><p>Yes. Completely free and available in the App Store, Sheild will remain fast and privacy-first.</p></details>
+        <details class="reveal"><summary>Which platforms are supported?</summary><p>Initially iOS, Coming soon: Android Desktop Windows, Linux. More platforms may follow.</p></details>
+        <details class="reveal"><summary>Does Sheild sell my data?</summary><p>No. We don’t track or sell your data.</p></details>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section id="download" class="section" style="background:linear-gradient(180deg,#ffffff,#f6f8ff)">
+      <div class="container">
+        <h2>Get Sheild Browser</h2>
+        <p class="lead">Install in seconds. Your default search engine and settings remain your choice.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://apps.apple.com/us/app/sheild/id6753663434" id="storeLink">☀️ ⚡ Download on the App Store</a>
+          <a class="btn" href="https://github.com/appcod8/Sheild/releases/download/Browser/Sheild....apk" target="_blank">☀️ ⚡ Coming  soon Android APK</a>
+          <a class="btn" href="mailto:space8@duck.com?subject=Sheild%20Browser%20Support">Contact Support</a>
+        </div>
+        <div class="subtext">By installing, you agree to the <a href="/privacy">Privacy Policy</a> and <a href="https://github.com/appcod8/sheild.privacy">Terms</a>.</div>
+      </div>
+    </section>
+
+  </main>
+
+
+     <!--       footer            -->
+  <footer>
+       <!-- Minimal Bookmarks Bar -->
+    <div id="bookmark-bar">
+      <button>SpaceEdge</button>
+      <button>Sheild</button>
+      <button>Sheild</button>
+    </div>
+    <div style="font-family: -apple-system, sans-serif; text-align: center; padding: 20px;">
+  
+<h2>Feedback & Suggestions</h2>
+    <p> Your opinion matters!
+      Let's improve Sheild. Share your feedback:
+<p style="font-size: 16px; margin-bottom: 10px; ">
+  </p>
+<p style="font-size: 16px; margin-bottom: 10px; ">
+    GitHub repository:
+  </p>
+  <a href="https://github.com/appcod8/sheild" target="_blank" style="text-decoration: none; color: #0386d6; font-weight: bold; display: inline-flex; align-items: center; "> <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 14px; height: 14px; margin-left: 10px; ">
+     Sheild
+  </a>
+  <br>
+  <p style="font-size: 16px; margin-bottom: 10px; ">
+    Support:
+  </p>
+  <a href="/support" target="_blank" style="text-decoration: none; color: #0386d6; font-weight: bold; display: inline-flex; align-items: center; "> 
+   🛠Visit Support page </a>
+  
+    <br>
+</div>
+    
+</div>
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© 2026 Sheild Browser —  All rights reserved. <a href="https://sheildbrowser.com">sheildbrowser.com</a> .</div>
+      <div style="display:flex;gap:14px">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="https://github.com/appcod8/sheild">GitHub</a>
+      </div>
+    </div>
+  </footer>
+  
+
+
+<!-- ============
+       JS
+   ============= -->
+  
+<!--   live stats js -->
+<script>
+    const bundleId = "com.sheildbrowser"; // Replace with your actual app bundle ID
+    const appStoreURL = `https://itunes.apple.com/lookup?bundleId=${bundleId}&country=us`;
+
+    async function fetchAppStoreInfo() {
+        try {
+            const res = await fetch(appStoreURL);
+            const data = await res.json();
+            if (data.resultCount > 0) {
+                const app = data.results[0];
+                document.getElementById("app-version").textContent = app.version;
+                document.getElementById("release-notes").textContent = app.releaseNotes || "–";
+            }
+        } catch (e) {
+            console.error("App Store fetch failed:", e);
+        }
+    }
+
+    // Optional: fetch your Cloud/LLM/Issues from JSON
+    const statusUrl = "https://yourserver.com/sheild-status.json"; // Replace with your server JSON
+    async function fetchLiveStatus() {
+        try {
+            const res = await fetch(statusUrl);
+            const data = await res.json();
+
+            document.getElementById("cloud-status").textContent = data.cloudAI || "–";
+            document.getElementById("local-status").textContent = data.localLLM || "–";
+
+            const issuesList = document.getElementById("issues-list");
+            issuesList.innerHTML = "";
+            if (data.issues && data.issues.length > 0) {
+                data.issues.forEach(issue => {
+                    const li = document.createElement("li");
+                    li.textContent = issue;
+                    issuesList.appendChild(li);
+                });
+            } else {
+                const li = document.createElement("li");
+                li.textContent = "No known issues";
+                issuesList.appendChild(li);
+            }
+
+            document.getElementById("last-updated").textContent = new Date().toLocaleString();
+        } catch (error) {
+            console.error("Failed to fetch live status:", error);
+        }
+    }
+
+    // Initial fetch
+    fetchAppStoreInfo();
+    fetchLiveStatus();
+
+    // Auto-refresh every 60 seconds
+    setInterval(fetchAppStoreInfo, 60000);
+    setInterval(fetchLiveStatus, 60000);
+</script>
+
+<!-- Countdown JS 
+                   -->
+<script>
+/* =========================
+   HOLIDAY DEFINITIONS
+========================= */
+
+const HOLIDAYS = [
+  // ✝️ Christian
+  {
+    name: "Christmas",
+    getDate: y => new Date(y, 11, 25),
+    message: () => "🎄 Merry Christmas!"
+  },
+  {
+    name: "Easter",
+    getDate: y => {
+      // Western Easter (Gregorian algorithm)
+      const f = Math.floor;
+      const a = y % 19;
+      const b = f(y / 100);
+      const c = y % 100;
+      const d = f(b / 4);
+      const e = b % 4;
+      const g = f((8 * b + 13) / 25);
+      const h = (19 * a + b - d - g + 15) % 30;
+      const j = f(c / 4);
+      const k = c % 4;
+      const m = (a + 11 * h) / 319 | 0;
+      const r = (2 * e + 2 * j - k - h + m + 32) % 7;
+      const n = (h - m + r + 90) / 25 | 0;
+      const p = (h - m + r + n + 19) % 32;
+      return new Date(y, n - 1, p);
+    },
+    message: () => "✝️ Happy Easter!"
+  },
+
+  // ✡️ Jewish (approximate Gregorian mapping)
+  {
+    name: "Rosh Hashanah",
+    getDate: y => new Date(y, 8, 15), // ~mid September
+    message: () => "✡️ Shanah Tovah!"
+  },
+  {
+    name: "Yom Kippur",
+    getDate: y => new Date(y, 8, 24), // ~late September
+    message: () => "✡️ G’mar Chatimah Tovah"
+  },
+
+  // 🧧 Chinese (approximate lunar)
+  {
+    name: "Chinese New Year",
+    getDate: y => new Date(y, 1, 5), // ~late Jan / early Feb
+    message: y => `🧧 Happy Lunar New Year ${y}!`
+  }
+];
+
+/* =========================
+   FIND NEXT HOLIDAY
+========================= */
+
+function getNextHoliday() {
+  const now = new Date();
+
+  return HOLIDAYS
+    .map(h => {
+      let date = h.getDate(now.getFullYear());
+      if (date < now) date = h.getDate(now.getFullYear() + 1);
+      return { ...h, date };
+    })
+    .sort((a, b) => a.date - b.date)[0];
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+const holiday = getNextHoliday();
+const targetTime = holiday.date.getTime();
+
+const countdownEl = document.getElementById("countdown");
+const button = document.getElementById("launchButton");
+
+const timer = setInterval(() => {
+  const now = Date.now();
+  const diff = targetTime - now;
+
+  if (diff <= 0) {
+    clearInterval(timer);
+    countdownEl.innerHTML = holiday.message(holiday.date.getFullYear());
+    button.innerText = "Download Now";
+    button.href = "https://apps.apple.com/us/app/sheild/id6753663434";
+    return;
+  }
+
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff / 3600000) % 24);
+  const m = Math.floor((diff / 60000) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  countdownEl.innerHTML = `
+    ${holiday.name} in ${d}d ${h}h ${m}m ${s}s
+  `;
+}, 1000);
+</script>
+
+<!-- dark mode JS  -->
+<script>
+// Initialize dark mode icon
+const darkToggle = document.querySelector(".dark-toggle");
+darkToggle.innerText = '🌛'; // default: dark mode
+
+// Dark mode toggle
+let darkMode = true; // initial mode is dark
+
+const features = document.querySelectorAll(".feature"); // add this at top
+
+function toggleDark() {
+  const body = document.body;
+  const button = document.getElementById("launchButton");
+  const darkToggle = document.querySelector(".dark-toggle");
+
+  if (darkMode) {
+    // Switch to light mode
+    body.style.background = 'white';
+    body.style.color = '#252525';
+    button.style.background = '#93c5fd'; // lighter blue
+    button.style.color = '#0a0a0c';
+    darkToggle.style.background = '#e5e7eb';
+    darkToggle.style.color = '#0a0a0a';
+    features.forEach(f => f.style.background = '#e5e7ff'); // light feature background
+    darkToggle.innerText = '☀️';
+    darkMode = false;
+  } else {
+    // Switch to dark mode
+    body.style.background = '#0a0a0a';
+    body.style.color = '#f5f5f5';
+    button.style.background = '#2563eb';
+    button.style.color = '#fff';
+    darkToggle.style.background = '#2563eb';
+    darkToggle.style.color = '#fff';
+    features.forEach(f => f.style.background = '#1e1e1e'); // dark feature background
+    darkToggle.innerText = '🌛';
+    darkMode = true;
+  }
+}
+</script>
+
+
+<!-- ============
+     Searchbox JS 
+   ============= -->
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id=a.getAttribute('href');
+        if(id.length>1){e.preventDefault();document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'});}
+      });
+    });
+
+    // Reveal on scroll
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(({isIntersecting,target})=>{
+        if(isIntersecting){target.classList.add('in');io.unobserve(target);}
+      });
+    },{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+
+// Searchbox Input Engines logic
+// query persistence 
+// --- Search Elements --- 
+// --- Keys ---
+const SEARCH_ENGINE_KEY = "sheild_last_engine";
+const QUERY_HISTORY_KEY = "sheild_query_history";
+
+// --- Elements ---
+const queryInput = document.getElementById("search-query");
+const engineSelect = document.getElementById("search-engine");
+const searchButton = document.getElementById("search-button");
+
+// --- Restore last engine ---
+const savedEngine = localStorage.getItem(SEARCH_ENGINE_KEY);
+if (savedEngine) engineSelect.value = savedEngine;
+engineSelect.addEventListener("change", () => {
+    localStorage.setItem(SEARCH_ENGINE_KEY, engineSelect.value);
+});
+
+
+// --- Setup query history ---
+let queryHistory = JSON.parse(localStorage.getItem(QUERY_HISTORY_KEY) || "[]");
+
+// --- Wrap input for optional arrow ---
+const wrapper = document.createElement("div");
+wrapper.style.position = "relative";
+queryInput.parentNode.insertBefore(wrapper, queryInput);
+wrapper.appendChild(queryInput);
+
+// Optional dropdown arrow
+const arrow = document.createElement("span");
+arrow.textContent = "▼";
+arrow.style.cssText = `
+    position:absolute;
+    right:6px;
+    top:50%;
+    transform:translateY(-50%);
+    pointer-events:none;
+    color:#555;
+    font-size:12px;
+`;
+wrapper.appendChild(arrow);
+
+// --- Create custom dropdown ---
+const dropdown = document.createElement("ul");
+wrapper.appendChild(dropdown);
+
+// --- Function to update dropdown position/width ---
+function updateDropdownPosition() {
+    dropdown.style.top = queryInput.offsetHeight + 2 + "px";
+    dropdown.style.left = "0px";
+    dropdown.style.width = queryInput.offsetWidth + "px";
+}
+updateDropdownPosition();
+
+dropdown.style.cssText += `
+    position:absolute;
+    box-sizing:border-box;
+    margin:0; padding:0;
+    list-style:none;
+    border:1px solid #ccc;
+    border-radius:4px;
+    background:#fff;
+    max-height:200px;
+    overflow-y:auto;
+    display:none;
+    z-index:1000;
+    font-size:16px;
+    line-height:1.4;
+    color:#000;
+    box-shadow:0 2px 6px rgba(0,0,0,0.15);
+`;
+
+// --- Refresh dropdown with optional filter ---
+function refreshHistoryDropdown(filter="") {
+    dropdown.innerHTML = "";
+
+    const matches = queryHistory
+        .slice(-10)
+        .reverse()
+        .filter(q => q.toLowerCase().includes(filter.toLowerCase()));
+
+    if (matches.length === 0) {
+        dropdown.style.display = "none";
+        return;
+    }
+
+    matches.forEach((q, index) => {
+        const li = document.createElement("li");
+        li.style.cssText = `
+            padding:8px 12px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            cursor:pointer;
+            font-size:16px;
+            color:#000;
+            background:#fff;
+            min-height:30px;
+        `;
+
+        const textSpan = document.createElement("span");
+        textSpan.textContent = q;
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "×";
+        deleteBtn.title = "Delete this entry";
+        deleteBtn.style.cssText = `
+            background:none; border:none; color:#d33;
+            font-weight:bold; cursor:pointer; padding:0 6px;
+            font-size:16px;
+        `;
+
+        deleteBtn.addEventListener("mousedown", (e) => {
+            e.stopPropagation();
+            const originalIndex = queryHistory.length - 1 - queryHistory.slice(-10).reverse().indexOf(q);
+            queryHistory.splice(originalIndex, 1);
+            localStorage.setItem(QUERY_HISTORY_KEY, JSON.stringify(queryHistory));
+            refreshHistoryDropdown(queryInput.value);
+        });
+
+        li.appendChild(textSpan);
+        li.appendChild(deleteBtn);
+
+        li.addEventListener("mousedown", () => {
+            queryInput.value = q;
+            dropdown.style.display = "none";
+        });
+
+        dropdown.appendChild(li);
+    });
+
+    dropdown.style.display = "block";
+    updateDropdownPosition();
+}
+
+// --- Show dropdown on focus and input ---
+queryInput.addEventListener("focus", () => refreshHistoryDropdown(queryInput.value));
+queryInput.addEventListener("input", () => refreshHistoryDropdown(queryInput.value));
+
+// --- Hide dropdown on click outside (iOS safe) ---
+document.addEventListener("click", (e) => {
+    if (!wrapper.contains(e.target)) {
+        dropdown.style.display = "none";
+    }
+});
+
+// --- Add input value to history on blur ---
+queryInput.addEventListener("blur", () => {
+    const val = queryInput.value.trim();
+    if (val && !queryHistory.includes(val)) {
+        queryHistory.push(val);
+        localStorage.setItem(QUERY_HISTORY_KEY, JSON.stringify(queryHistory));
+        refreshHistoryDropdown();
+    }
+});
+
+// --- Update dropdown on window resize ---
+window.addEventListener('resize', updateDropdownPosition);
+
+// --- Add Clear History button ---
+const clearBtn = document.createElement("button");
+clearBtn.textContent = "✕";
+clearBtn.title = "Clear query history";
+clearBtn.style.cssText = `
+    margin-left:4px; padding:4px 6px; border:none;
+    border-radius:6px; background:#d33; color:#fff; cursor:pointer;
+`;
+engineSelect.insertAdjacentElement("afterend", clearBtn);
+
+clearBtn.addEventListener("click", () => {
+    queryHistory = [];
+    localStorage.removeItem(QUERY_HISTORY_KEY);
+    refreshHistoryDropdown(queryInput.value);
+});
+
+
+// --- New Tab Toggle ---
+let openInNewTab = false;
+const newTabToggle = document.createElement("button");
+newTabToggle.title = "Open results in new tab";
+newTabToggle.style.cssText = `
+    width:26px; height:36px; padding:0; margin-left:4px; border-radius:6px; border:none; 
+    background:#55f; font-size:18px; color:#fff; cursor:pointer;
+`;
+newTabToggle.innerHTML = "&#128279;";
+
+// Keep both buttons after engineSelect, new tab toggle after clear
+clearBtn.insertAdjacentElement("afterend", newTabToggle);
+
+newTabToggle.addEventListener("click", () => {
+    openInNewTab = !openInNewTab;
+    if (openInNewTab) {
+        newTabToggle.style.background = "#FFAA00";
+        newTabToggle.innerHTML = '&#128279;<span style="display:block;font-size:8px; margin:2px;">New</span>';
+    } else {
+        newTabToggle.style.background = "#55f";
+        newTabToggle.innerHTML = "&#128279;";
+    }
+});
+
+// --- Perform Search ---
+function performSearch() {
+    const q = queryInput.value.trim();
+    if (!q) return;
+
+    // update history
+    if (!queryHistory.includes(q)) {
+        queryHistory.push(q);
+        localStorage.setItem(QUERY_HISTORY_KEY, JSON.stringify(queryHistory));
+    }
+    refreshHistoryDropdown();
+
+    const fullUrl = engineSelect.value + encodeURIComponent(q);
+    window.open(fullUrl, openInNewTab ? "_blank" : "_self");
+}
+
+// --- Event Listeners ---
+searchButton.addEventListener("click", performSearch);
+queryInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") performSearch();
+});
+
+
+    // Bookmarks
+    const bookmarks=[{name:"SpaceEdge",url:"https://spaceedge.com"},{name:"Sheild",url:"https://sheildbrowser.com"},{name:"Sheild",url:"https://sheildbrowser.com"}];
+    document.querySelectorAll("#bookmark-bar button").forEach((btn,i)=>btn.addEventListener("click",()=>window.open(bookmarks[i].url,"_self")));
+
+// Store link placeholder safety (kept in case href is '#')
+    function wirePlaceholder(el){
+      el?.addEventListener('click',(e)=>{
+        const href=el.getAttribute('href'); if(href==="#"||href===""||href===null){e.preventDefault();alert('The store listing is coming soon.');}
+      });
+    }
+    wirePlaceholder(document.getElementById('storeLink'));
+    wirePlaceholder(document.getElementById('downloadButton'));
+
+// Incognito tagline slide-up (optional hook add later)
+    function isInViewport(el){const r=el.getBoundingClientRect();return r.top<=innerHeight && r.bottom>=0}
+    const incog=document.getElementById("incognito-tagline");
+    function checkSlideUp(){ if(!incog) return; if(isInViewport(incog)){incog.style.opacity=1;incog.style.transform="translateY(0)";window.removeEventListener("scroll",checkSlideUp)}}
+    window.addEventListener("scroll",checkSlideUp); window.addEventListener("load",checkSlideUp);
+  </script>
+
+  <!-- Optional floating toolbar -->
+  <div class="toolbar" style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:12px;padding:8px 16px;background:rgba(255,255,255,0.95);border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:999;">
+    <button id="backBtn" style="padding:8px 12px;border:none;background:#eee;border-radius:8px;font-size:1rem;">←</button>
+    <button id="forwardBtn" style="padding:8px 12px;border:none;background:#eee;border-radius:8px;font-size:1rem;">→</button>
+    <button id="homeBtn" style="padding:8px 12px;border:none;background:#eee;border-radius:8px;font-size:1rem;">🏠</button>
+    <button id="tabsBtn" style="padding:8px 12px;border:none;background:#eee;border-radius:8px;font-size:1rem;">Tabs</button>
+  </div>
+  <script>
+    document.getElementById("homeBtn").addEventListener("click",()=>location.href="/");
+    document.getElementById("backBtn").addEventListener("click",()=>history.back());
+    document.getElementById("forwardBtn").addEventListener("click",()=>history.forward());
+    document.getElementById("tabsBtn").addEventListener("click",()=>alert("Tabs manager coming soon!"));
+  </script>
+
+<!-- hero full img dispkay -->
+<script>
+document.addEventListener("scroll", () => {
+  const hero = document.querySelector(".hero-dg");
+  if (window.scrollY > 50) {  
+    hero.classList.add("full-view");   // show full image
+  } else {
+    hero.classList.remove("full-view"); // back to cover
+  }
+});
+</script>
+
+</body>
+</body>
+</html>
