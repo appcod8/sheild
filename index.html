@@ -143,12 +143,14 @@ html { font-size: 80%; }
   
 ul {
   list-style: none; padding: 0;
+  list-style-position: inside;
+  padding-left: 0;
 }
 ul li {
-  position: relative; padding-left: 1.25rem;
+  margin: 0; padding: 0;
 }
 ul li::before {
-  content: "•";
+  font-size: 2em; content: "•";
   position: absolute;
   left: 0;
   color: #888;
