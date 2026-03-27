@@ -142,17 +142,18 @@ html { font-size: 80%; }
   }
   
 ul {
-  list-style: none; padding: 0;
-  list-style-position: inside;
-  padding-left: 0;
+  list-style: none;
+  padding: 0;
 }
 ul li {
-  margin: 0; padding: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
 }
 ul li::before {
   font-size: 2em; content: "•";
   position: absolute;
-  left: 0;
+  left: 10;
   color: #888;
 }
 
