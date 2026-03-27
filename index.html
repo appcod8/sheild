@@ -144,17 +144,19 @@ html { font-size: 80%; }
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 ul li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5em;
+  display: grid;
+  grid-template-columns: 1.2em 1fr;
+  align-items: start;
 }
 ul li::before {
   font-size: 2em; content: "•";
   position: absolute;
   padding-left: 5px;
   color: #888;
+  line-height: 1;
 }
 
 /* Live Status Panel */
@@ -279,10 +281,10 @@ Not ordinary browser and never sellout users, no compromise. </p>
   <strong>• Local LLM:</strong> Ready</div>
   
  <div><strong>• Known Issues:</strong>
-        <ul>
-            <li>Update now to latest version </li>
-            <li>Fixes & feature improvements in this new release.</li>
-        </ul>
+   <ul>
+     <li>Update now to latest version </li>
+      <li>Fixes & feature improvements in this new release.</li>
+   </ul>
     </div>
 <br>
    <div><strong>What’s New:</strong> <pre id="release-notes">Loading…</pre></div>
@@ -299,7 +301,7 @@ Not ordinary browser and never sellout users, no compromise. </p>
     </div>
     -->
     
-
+<main>
   
    <section id="manifesto" class="section">
       <article class="container">
@@ -314,10 +316,10 @@ Not ordinary browser and never sellout users, no compromise. </p>
       
     
  <div style="">
-   <p> ❎ No Spyware, Adware, Telemetry, or any Opt-ins, baked-in. </p>
+   <p>❎ No Spyware, Adware, Telemetry, or any Opt-ins, baked-in. </p>
      <p> “Apps & browsers today ship with pre-bundled bloat: Ads SDKs, telemetry, analytics, device fingerprinting, background sync, cross-app tracking, over-permissioned hooks, and opaque referral scripts — all silently harvesting users data.”</p>
-
-  <h2 style="text-align: center;">Why Sheild is Different. <span style="font-style: italic; text-align: center;"> The browser built for speed, simplicity, true privacy and trust.</span> </h2>
+<br>
+ <h2 style="text-align: center;">Why Sheild is Different. <span style="font-style: italic; text-align: center;"> The browser built for speed, simplicity, true privacy and trust.</span> </h2>
   
   <p>
     I was dissatisified with the level of bloat, the major apps disregard of users. 
@@ -328,11 +330,9 @@ Not ordinary browser and never sellout users, no compromise. </p>
     <li>Mozilla Firefox, Google Chrome, Microsoft Edge, Apple WebKit., lose tabs, installed extensions saved settings, pre-bundle bloat, have leaks, break privacy security bugs.</li>
   </ul>
   
-  <div class="main">
 <p>The biggest differentiators. Most top browsers or “top apps” quietly run tracking scripts, ad networks, and analytics, even when they call it “private” or “recommended.” </p>
   
-  <h2>Sheild browser is radically different and trustworthy:</h2>
-
+  <h3>Sheild browser is radically different and trustworthy:</h3>
 
 <p>
   This gave me an advantage: to experiment with features and polish others apps waste on bloat spyware and adware. It’s not just features — it’s value true proposition that separates from others. 
@@ -345,7 +345,6 @@ Sheild has: dynamic + transparency + privacy-first + immediate functions, achiev
 </blockquote>
 
 
-  
 <ul>
   <li><strong>No background tracking</strong> — No collecting of user data, analytics, or browsing habits.</li>
   <li><strong>No ads injected</strong> — affiliate links or static, no popups, banners, or scripts.</li>
@@ -364,7 +363,7 @@ Sheild has: dynamic + transparency + privacy-first + immediate functions, achiev
 
   </div>     
     
-    </section>
+</section>
 
 
     <!-- ARTICLE : Transparency / App Store visibility -->
