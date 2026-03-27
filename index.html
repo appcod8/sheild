@@ -142,18 +142,19 @@ html { font-size: 80%; }
   }
   
 ul {
+  list-style-position: inside;
   display: block; 
   list-style: none;
   margin: 3px; padding: 3px; 
 }
-ul li {
+li {
   display: block;
   margin: 0; padding: 0; 
 }
 ul li::before {
   font-size: 2em; content: "•";
   position: absolute;
-  padding-left: 0;
+  margin: 3px; padding: 3px;
   color: #888;
   line-height: 1;
 }
