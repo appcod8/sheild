@@ -670,7 +670,57 @@ const HOLIDAYS = [
     },
     message: () => "🇺🇸 Labor Day"
   },
-
+// 🌎 International / Cultural (non-religious)
+{
+  name: "Cinco de Mayo",
+  getDate: y => new Date(y, 4, 5),
+  message: () => "🇲🇽 Cinco de Mayo"
+},
+{
+  name: "International Workers' Day",
+  getDate: y => new Date(y, 4, 1),
+  message: () => "⚒️ Workers' Day"
+},
+{
+  name: "International Women's Day",
+  getDate: y => new Date(y, 2, 8),
+  message: () => "♀️ International Women's Day"
+},
+{
+  name: "World Health Day",
+  getDate: y => new Date(y, 3, 7),
+  message: () => "🩺 World Health Day"
+},
+{
+  name: "World Oceans Day",
+  getDate: y => new Date(y, 5, 8),
+  message: () => "🌊 World Oceans Day"
+},
+{
+  name: "International Day of Peace",
+  getDate: y => new Date(y, 8, 21),
+  message: () => "🕊️ Peace Day"
+},
+{
+  name: "United Nations Day",
+  getDate: y => new Date(y, 9, 24),
+  message: () => "🇺🇳 United Nations Day"
+},
+{
+  name: "Halloween",
+  getDate: y => new Date(y, 9, 31),
+  message: () => "🎃 Halloween"
+},
+{
+  name: "April Fools' Day",
+  getDate: y => new Date(y, 3, 1),
+  message: () => "🤡 April Fools!"
+},
+{
+  name: "Valentine's Day",
+  getDate: y => new Date(y, 1, 14),
+  message: () => "❤️ Valentine's Day"
+},
   // 🌍 Environmental
   {
     name: "Earth Day",
