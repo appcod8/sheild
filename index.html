@@ -565,10 +565,6 @@ Sheild has: dynamic + transparency + privacy-first + immediate functions, achiev
 <!-- Countdown JS 
                    -->
 <script>
-/* =========================
-   HOLIDAY DEFINITIONS
-========================= */
-
 const HOLIDAYS = [
   // ✝️ Christian
   {
@@ -579,7 +575,6 @@ const HOLIDAYS = [
   {
     name: "Easter",
     getDate: y => {
-      // Western Easter (Gregorian algorithm)
       const f = Math.floor;
       const a = y % 19;
       const b = f(y / 100);
@@ -602,20 +597,98 @@ const HOLIDAYS = [
   // ✡️ Jewish (approximate Gregorian mapping)
   {
     name: "Rosh Hashanah",
-    getDate: y => new Date(y, 8, 15), // ~mid September
+    getDate: y => new Date(y, 8, 15),
     message: () => "✡️ Shanah Tovah!"
   },
   {
     name: "Yom Kippur",
-    getDate: y => new Date(y, 8, 24), // ~late September
+    getDate: y => new Date(y, 8, 24),
     message: () => "✡️ G’mar Chatimah Tovah"
   },
 
   // 🧧 Chinese (approximate lunar)
   {
     name: "Chinese New Year",
-    getDate: y => new Date(y, 1, 5), // ~late Jan / early Feb
+    getDate: y => new Date(y, 1, 5),
     message: y => `🧧 Happy Lunar New Year ${y}!`
+  },
+
+  /* =========================
+     ADDED HOLIDAYS BELOW
+  ========================= */
+
+  // ✡️ Additional Jewish (approximate)
+  {
+    name: "Hanukkah",
+    getDate: y => new Date(y, 11, 10),
+    message: () => "🕎 Happy Hanukkah!"
+  },
+  {
+    name: "Passover",
+    getDate: y => new Date(y, 3, 5),
+    message: () => "✡️ Happy Passover!"
+  },
+
+  // 🇺🇸 US Holidays
+  {
+    name: "New Year's Day",
+    getDate: y => new Date(y, 0, 1),
+    message: () => "🎆 Happy New Year!"
+  },
+  {
+    name: "Independence Day",
+    getDate: y => new Date(y, 6, 4),
+    message: () => "🇺🇸 Happy 4th of July!"
+  },
+  {
+    name: "Veterans Day",
+    getDate: y => new Date(y, 10, 11),
+    message: () => "🇺🇸 Thank you veterans"
+  },
+  {
+    name: "Thanksgiving",
+    getDate: y => {
+      const first = new Date(y, 10, 1);
+      const offset = (4 - first.getDay() + 7) % 7;
+      return new Date(y, 10, 1 + offset + 21);
+    },
+    message: () => "🦃 Happy Thanksgiving!"
+  },
+  {
+    name: "Memorial Day",
+    getDate: y => {
+      const d = new Date(y, 4, 31);
+      return new Date(y, 4, 31 - ((d.getDay() + 6) % 7));
+    },
+    message: () => "🇺🇸 Memorial Day"
+  },
+  {
+    name: "Labor Day",
+    getDate: y => {
+      const d = new Date(y, 8, 1);
+      return new Date(y, 8, 1 + ((8 - d.getDay()) % 7));
+    },
+    message: () => "🇺🇸 Labor Day"
+  },
+
+  // 🌍 Environmental
+  {
+    name: "Earth Day",
+    getDate: y => new Date(y, 3, 22),
+    message: () => "🌎 Earth Day"
+  },
+  {
+    name: "World Environment Day",
+    getDate: y => new Date(y, 5, 5),
+    message: () => "🌱 World Environment Day"
+  },
+  {
+    name: "Earth Hour",
+    getDate: y => {
+      const d = new Date(y, 2, 31);
+      return new Date(y, 2, 31 - d.getDay());
+    },
+    message: () => "🌍 Earth Hour"
   }
 ];
 
