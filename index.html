@@ -89,6 +89,7 @@ header {
 .section h2{font-size:clamp(22px,3.6vw,36px);margin:0 0 10px;text-align:left}
 .section p.lead{color:var(--muted);max-width:760px}
 .grid{display:grid;gap:16px}
+  
 @media (min-width: 740px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
 .card{background:var(--card);border:1px solid rgba(10,20,40,.08);border-radius:var(--radius);padding:18px;transition:transform .25s, box-shadow .25s}
 .card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(16,24,40,.1)}
@@ -158,6 +159,19 @@ ul li::before {
   line-height: 1;
 }
 
+.store-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;   /* centers horizontally */
+  align-items: center;       /* aligns vertically */
+  gap: 16px;                 /* replaces <br> */
+  padding: 15px;
+  margin: 0 auto;
+
+  border-radius: 10px;
+  max-width: fit-content;    /* keeps it tight around content */
+}
+  
 /* Live Status Panel */
 #live-status {
         background: rgba(125,125,125,0.55);
@@ -229,13 +243,11 @@ ul li::before {
 
 <br>
   
- <div style="text-align:center; border-radius: 10px; padding: 15px; line-height: 1.5em; display: flex; flex-direction: row; justify-content: center; align-items: center;
-    text-align: center; margin: 0 auto;">
+<div class="store-row">
   <img src="/IMG_2025-11-11-120318.jpeg" style="width:80px;height:80px;border-radius:50%; object-fit: contain;" alt="Sheild">
-    <br>
+   
   <a href="https://apps.apple.com/us/app/sheild/id6753663434" target="_blank">
   <img src="/appstore.png" alt="Download on the App Store" style="height:60px;"> </a>
-  
 </div>
 
 
@@ -273,8 +285,7 @@ Not ordinary browser and never sellout users, no compromise. </p>
     </div>
     -->
     
-  
-   <section id="manifesto" class="section">
+<section id="manifesto" class="section">
       <article class="container">
         
           <h2>Browse faster. Search smarter. Keep your data yours.</h2>
