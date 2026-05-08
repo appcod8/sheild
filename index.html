@@ -429,17 +429,17 @@ Sheild has: dynamic + transparency + privacy-first + immediate functions, achiev
 
 
 
-     <!--       footer            -->
-  <footer>
-    
-  <!-- Minimal Bookmarks Bar -->
-    <div id="bookmark-bar">
-      <button>SpaceEdge</button>
-      <button>Chroma</button>
-      <button>Sheild</button>
-    </div>
-    <div style="font-family: -apple-system, sans-serif; text-align: center; padding: 20px;">
+<!--       footer            -->
+<footer>
   
+  <!-- Minimal Bookmarks Bar -->
+  <div id="bookmark-bar">
+    <button>SpaceEdge</button>
+    <button>Chroma</button>
+    <button>Sheild</button>
+  </div>
+  
+<div style="font-family: -apple-system, sans-serif; text-align: center; padding: 20px;">
 <h2>Feedback & Suggestions</h2>
     <p> Your opinion matters!
       Let's improve Sheild. Share your feedback:
@@ -1049,9 +1049,6 @@ queryInput.addEventListener("keydown", (e) => {
 });
 
 
-  // Bookmarks
-    const bookmarks=[{name:"SpaceEdge",url:"https://spaceedge.com"},{name:"Chroma",url:"https://chromabrowser.com"},{name:"Sheild",url:"https://sheildbrowser.com"}];
-    document.querySelectorAll("#bookmark-bar button").forEach((btn,i)=>btn.addEventListener("click",()=>window.open(bookmarks[i].url,"_self")));
 
 // Store link placeholder safety (kept in case href is '#')
     function wirePlaceholder(el){
@@ -1069,13 +1066,29 @@ queryInput.addEventListener("keydown", (e) => {
     window.addEventListener("scroll",checkSlideUp); window.addEventListener("load",checkSlideUp);
   </script>
 
-  <!-- Optional floating toolbar
+
+ <script>
+    const bookmarks = [
+      { name: "SpaceEdge", url: "https://spaceedge.com" },
+      { name: "Chroma", url: "https://chromabrowser.com" },
+      { name: "Sheild", url: "https://sheildbrowser.com" }
+    ];
+    document
+      .querySelectorAll("#bookmark-bar button")
+      .forEach((btn, i) =>
+        btn.addEventListener("click", () =>
+          window.open(bookmarks[i].url, "_self")
+        )
+      );
+</script>
+      
+  <!-- Optional floating toolbar -->
   <div class="toolbar" style="position:fixed;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:12px;padding:8px 16px;background:rgba(255,255,255,0.95);border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:999;">
     <button id="backBtn" style="padding:8px 12px;border:none;background:#eee;border-radius:8px;font-size:1rem;">←</button>
     <button id="forwardBtn" style="padding:8px 12px;border:none;background:#eee;border-radius:8px;font-size:1rem;">→</button>
     <button id="homeBtn" style="padding:8px 12px;border:none;background:#eee;border-radius:8px;font-size:1rem;">🏠</button>
     <button id="tabsBtn" style="padding:8px 12px;border:none;background:#eee;border-radius:8px;font-size:1rem;">Tabs</button>
-  </div> -->
+  </div>
   <script>
     document.getElementById("homeBtn").addEventListener("click",()=>location.href="/");
     document.getElementById("backBtn").addEventListener("click",()=>history.back());
