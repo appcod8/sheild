@@ -1,0 +1,18 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [ "7NM344W5VZ.com.sheildbrowser" ],
+        "components": [
+          {
+            "/": "*",
+            "comment": "Matches all paths on this domain"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [ "7NM344W5VZ.com.sheildbrowser" ]
+  }
+}
