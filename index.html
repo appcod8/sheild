@@ -109,11 +109,11 @@ article{max-width:820px;margin:0 auto}
 blockquote{margin:20px 0;padding:15px 20px;background:#f0f0f0;border-left:5px solid #0070c9;font-style:italic}
 .article-meta{color:var(--muted);font-size:14px;margin-bottom:16px;text-align:center}
 
-/* FAQ / Footer */
+/* FAQ /  */
 details{background:var(--card);border:1px solid rgba(10,20,40,.08);border-radius:14px;padding:14px}
 summary{cursor:pointer;font-weight:700}
 details p{color:var(--muted)}
-footer{padding:40px 0;border-top:1px solid rgba(10,20,40,.06);color:var(--muted)}
+{padding:40px 0;border-top:1px solid rgba(10,20,40,.06);color:var(--muted)}
 
 /* Animations */
 .reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .6s ease}
@@ -1073,6 +1073,13 @@ queryInput.addEventListener("keydown", (e) => {
       { name: "Chroma", url: "https://chromabrowser.com" },
       { name: "Sheild", url: "https://sheildbrowser.com" }
     ];
+    document.addEventListener("DOMContentLoaded", () => {
+    const bookmarks = [
+      { name: "SpaceEdge", url: "https://spaceedge.com" },
+      { name: "Chroma", url: "https://chromabrowser.com" },
+      { name: "Sheild", url: "https://sheildbrowser.com" }
+    ];
+  
     document
       .querySelectorAll("#bookmark-bar button")
       .forEach((btn, i) =>
@@ -1080,6 +1087,7 @@ queryInput.addEventListener("keydown", (e) => {
           window.open(bookmarks[i].url, "_self")
         )
       );
+});
 </script>
       
   <!-- Optional floating toolbar -->
