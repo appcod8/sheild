@@ -24,12 +24,12 @@ header {
   position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);
   backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid rgba(10,20,40,.06);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav{display:flex;align-items:center; justify-content:space-between; height:64px}
 .brand{display:flex;gap:12px;align-items:center;font-weight:800;letter-spacing:.2px}
 .brand-logo{width:28px;height:28px;border-radius:8px;
   background:linear-gradient(135deg,var(--brand-1),var(--brand-2));box-shadow:0 6px 20px rgba(91,124,250,.95)}
 .nav-actions{display:flex;gap:10px;align-items:center}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:12px;
+.btn{display:inline-flex;align-items:center; justify-content:center; gap:8px;padding:12px 16px;border-radius:12px;
   border:1px solid rgba(10,20,40,.1);background:#fff;cursor:pointer;font-weight:600}
 .btn.primary{background:linear-gradient(135deg,var(--brand-1),var(--brand-2));color:#fff;border:none;box-shadow:0 8px 24px rgba(91,124,250,.35)}
 .btn.primary:focus{outline:var(--ring)}
@@ -39,7 +39,7 @@ header {
   height: 180px; width:100%; max-width: 500px; 
   margin:0 auto; padding:0;
   display: block; 
-  justify-content: left;
+  justify-content: center;
   align-items: ;
   text-align: left;
   color: #eee; background-color: #888; /* col */
@@ -166,12 +166,12 @@ ul li::before {
         backdrop-filter: blur(12px);
         border-radius: 14px;
         padding: 16px 24px;
-        max-width: 420px;
+        max-width: 430px;
         margin: 20px auto;
         box-shadow: 0 6px 16px rgba(0,0,0,0.12);
         text-align: left; /* force left-align inside panel */
 }
-#live-status strong { display: inline-block; width: 100px; vertical-align: top; }
+#live-status strong { display: inline-block; width: 150px; vertical-align: top; }
 #live-status ul { margin: 4px 0 0 18px; padding: 0; list-style: disc; }
 #live-status pre { white-space: pre-wrap; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
 
@@ -235,7 +235,7 @@ ul li::before {
   
  <div style="text-align:center; border-radius: 10px; padding: 15px; line-height: 1.5em; display: flex; flex-direction: row; justify-content: center; align-items: center;
     text-align: center; margin: 0 auto;">
-  <img src="/IMG_2025-11-11-120318.jpeg" style="width:80px;height:80px;border-radius:50%;object-fit:content" alt="Sheild">
+  <img src="/IMG_2025-11-11-120318.jpeg" style="width:80px;height:80px;border-radius:50%;object-fit:content;" alt="Sheild">
     <br>
   <a href="https://apps.apple.com/us/app/sheild/id6753663434" target="_blank">
   <img src="/appstore.png" alt="Download on the App Store" style="height:60px;"> </a>
@@ -383,11 +383,11 @@ Sheild has: dynamic + transparency + privacy-first + immediate functions, achiev
         <div class="grid cols-2" style="margin-top:18px">
           <div class="screen reveal">
             <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="url">omnibox: type once, search anywhere</div></div>
-            <div style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:#94a3b8">GIF/Video: omnibox with multi-engine results</div>
+         <div style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center; color:#94a3b8">GIF/Video: omnibox with multi-engine results</div>
           </div>
           <div class="screen reveal">
             <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span><div class="url">Tabbed mode: quick tasks, zero friction</div></div>
-            <div style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:#94a3b8">GIF/Video: popup workflow & shortcuts</div>
+            <div style="aspect-ratio:16/9;display:flex;align-items:center;justify-content:center; color:#94a3b8">GIF/Video: popup workflow & shortcuts</div>
           </div>
         </div>
       </div>
@@ -432,7 +432,7 @@ Sheild has: dynamic + transparency + privacy-first + immediate functions, achiev
      <!--       footer            -->
   <footer>
     
-       <!-- Minimal Bookmarks Bar -->
+  <!-- Minimal Bookmarks Bar -->
     <div id="bookmark-bar">
       <button>SpaceEdge</button>
       <button>Chroma</button>
@@ -448,16 +448,13 @@ Sheild has: dynamic + transparency + privacy-first + immediate functions, achiev
 <p style="font-size: 16px; margin-bottom: 10px; ">
     GitHub repository:
   </p>
-  <a href="https://github.com/appcod8/sheild" target="_blank" style="text-decoration: none; color: #0386d6; font-weight: bold; display: inline-flex; align-items: center; "> <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 14px; height: 14px; margin-left: 10px; ">
-     Sheild
-  </a>
-  <br>
+  <a href="https://github.com/appcod8/sheild" target="_blank" style="text-decoration: none; color: #0386d6; font-weight: bold; display: inline-flex; align-items: center; "> <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 14px; height: 14px; margin-left: 10px; ">  Sheild  </a>
+  <br>  <br>  <br>
   <p style="font-size: 16px; margin-bottom: 10px; ">
     Support:
   </p>
   <a href="/support" target="_blank" style="text-decoration: none; color: #0386d6; font-weight: bold; display: inline-flex; align-items: center; "> 
    🛠Visit Support page </a>
-  
     <br>
 </div>
     
