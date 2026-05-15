@@ -116,20 +116,20 @@ blockquote {
 }  
   
 /* FAQ /  */
-details{background:var(--card);border:1px solid rgba(10,20,40,.08);border-radius:14px;padding:14px}
-summary{cursor:pointer;font-weight:700}
-details p{color:var(--muted); padding:40px 0;border-top:1px solid rgba(10,20,40,.06);color:var(--muted)}
+details{background:var(--card);border:1px solid rgba(10,20,40,.08);border-radius:14px; padding:14px}
+summary{cursor:pointer; font-weight:700}
+details p{color:var(--muted); padding:40px 0; border-top:1px solid rgba(10,20,40,.06);color:var(--muted)}
 
 /* Animations */
 .reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .6s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
-@media (prefers-reduced-motion: reduce){.card:hover{transform:none}.reveal{transition:none}}
+@media ( prefers-reduced-motion: reduce){.card:hover{transform:none}.reveal{transition:none}}
 
 /* Search bars under header */
-#search-container{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px;background-color:#6200EE;color:#fff;justify-content:center}
-#bookmark-bar{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px;justify-content:center;background-color:#f5f5f5}
-#bookmark-bar button{padding:6px 10px;border-radius:6px;border:none;background-color:#BB86FC;color:#000;font-size:14px;cursor:pointer}
-#bookmark-bar button:active{background-color:#9C47FF } 
+#search-container{ display:flex;flex-wrap:wrap;align-items:center; gap:8px; padding:12px; background-color:#6200EE; color:#fff; justify-content:center}
+#bookmark-bar{ display:flex;flex-wrap:wrap; gap:6px; padding:8px 12px; justify-content: center; background-color:#f5f5f5}
+#bookmark-bar button{ padding:6px 10px; border-radius:6px; border:none; background-color:#BB86FC; color:#000; font-size:14px; cursor:pointer}
+#bookmark-bar button:active{ background-color:#9C47FF } 
     
 html { font-size: 80%; }
    
@@ -153,37 +153,34 @@ ul {
   text-align: left;
 }
 li {
-  position: relative;
-  margin: 3px 0;
+  position: relative; margin: 3px 0;
   padding-left: 1.2em;
 }
 ul li::before {
   content: "•";
-  position: absolute;
-  left: 0;
-  color: #888;
-  line-height: 1;
+  position: absolute; left: 0;
+  color: #888; line-height: 1;
 }
 
 .store-row {
   display: flex; flex-direction: row;
   justify-content: center;  /* centers horizontally */
-  align-items: center;      /* aligns vertically */
-  gap: 16px;                /* replaces <br> */
+  align-items: center; /* aligns vertically */
+  gap: 16px;           /* replaces <br> */
   padding: 15px; margin: 0 auto; border-radius: 10px;
-  max-width: fit-content;   /* keeps it tight around content */
+  max-width: fit-content;  /* keeps it tight around content */
 }
   
 /* Live Status Panel */
 #live-status {
-        background: rgba(155,155,155,0.55);
-        backdrop-filter: blur(12px);
-        border-radius: 14px;
-        padding: 16px 24px;
-        max-width: 85%;
-        margin: 20px auto;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-        text-align: left; /* force left-align inside panel */
+      background: rgba(155,155,155,0.55);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
+      padding: 16px 24px;
+      max-width: 85%;
+      margin: 20px auto;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      text-align: left; /* force left-align inside panel */
 }
 #live-status strong { display: inline-block; width: 150px; vertical-align: top; }
 #live-status ul { margin: 4px 0 0 18px; padding: 0; list-style: disc; }
@@ -207,8 +204,8 @@ ul li::before {
       </div> 
    <nav class="nav-actions">
         <a class="btn ghost" href="#features">Features</a>
-        <a class="btn primary" href="https://sheildbrowser.com">Sheild</a>
-        <!-- <a class="btn ghost" href="#download" id="downloadButton">Get Sheild</a>  -->
+     <!-- <a class="btn primary" href="https://sheildbrowser.com">Sheild</a> -->
+         <a class="btn ghost" href="#download" id="downloadButton">Download</a>  
       </nav>
     </div>
 
