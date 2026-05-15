@@ -81,9 +81,9 @@ header {
   font-size: clamp(28px,5vw,56px); line-height:1.05; margin:16px 0 12px;
   font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
 }
-.hero-product p{font-size:clamp(16px,2.2vw,20px);color:var(--muted);max-width:760px;margin:0 auto}
-.cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:22px 0 28px}
-.subtext{font-size:14px;color:var(--muted)}
+.hero-product p{font-size:clamp(16px,2.2vw,20px); color:var(--muted); max-width:760px; margin:0 auto}
+.cta{ display:flex; gap:12px;flex-wrap:wrap; justify-content:center; margin:22px 0 28px}
+.subtext{ font-size:14px; color:var(--muted)}
 
 /* Sections / cards */
 .section{ padding:60px 0}
@@ -95,20 +95,20 @@ header {
 .grid.cols-3{ grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)}}
 .card{background:var(--card);border:1px solid rgba(10,20,40,.08);border-radius: var(--radius);padding:18px; transition:transform .25s, box-shadow .25s}
 .card:hover{ transform:translateY(-2px); box-shadow:0 10px 22px rgba(16,24,40,.1)}
-.icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand-1),var(--brand-2));box-shadow:0 8px 20px rgba(91,124,250,.35)}
-.card h3{margin:10px 0 6px;font-size:18px}
-.card p{margin:0;color:var(--muted);font-size:15px}
+.icon{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--brand-1),var(--brand-2)); box-shadow:0 8px 20px rgba(91,124,250,.35)}
+.card h3{ margin:10px 0 6px; font-size:18px}
+.card p{ margin:0; color:var(--muted); font-size:15px}
 
-/* “sheildBrowser” mock frame (used in articles if needed) */
-.screen{border-radius:16px;border:1px solid rgba(10,20,40,.08);overflow:hidden;background:#fff;box-shadow:0 10px 24px rgba(16,24,40,.08)}
-.screen .chrome{display:flex;gap:8px;align-items:center;padding:8px 10px;background:linear-gradient(180deg,#f9fbff,#f0f4ff);border-bottom:1px solid rgba(10,20,40,.06)}
-.dot{width:10px;height:10px;border-radius:50%;background:#d9dde7}
-.url{flex:1;height:32px;border-radius:8px;border:1px solid rgba(10,20,40,.1);background:#fff;padding:0 12px;display:flex;align-items:center;color:#6b7486;font-size:14px}
+/* mock frame (used in articles if needed) */
+.screen{border-radius:16px; border:1px solid rgba(10,20,40,.08); overflow:hidden; background:#fff; box-shadow:0 10px 24px rgba(16,24,40,.08)}
+.screen .chrome{display:flex; gap:8px; align-items:center; padding:8px 10px; background:linear-gradient(180deg,#f9fbff,#f0f4ff); border-bottom:1px solid rgba(10,20,40,.06)}
+.dot{width:10px; height:10px; border-radius:50%; background:#d9dde7}
+.url{flex:1; height:32px; border-radius:8px; border:1px solid rgba(10,20,40,.1); background:#fff; padding:0 12px; display:flex; align-items:center; color:#6b7486; font-size:14px}
 
 /* Article styles */
-article{max-width:820px;margin:0 auto}
-.page-title{text-align:center;margin-bottom:10px}
-.article-meta{color:var(--muted);font-size:14px;margin-bottom:16px;text-align:center}
+article{ max-width:820px;margin:0 auto}
+.page-title{ text-align:center;margin-bottom:10px}
+.article-meta{ color:var(--muted); font-size:14px; margin-bottom:16px; text-align:center}
 
 blockquote { 
   width: 90%; margin:20px auto; padding: 15px 20px; background:#f0f0f0; 
@@ -116,14 +116,14 @@ blockquote {
 }  
   
 /* FAQ /  */
-details{background:var(--card);border:1px solid rgba(10,20,40,.08);border-radius:14px; padding:14px}
+details{background:var(--card); border:1px solid rgba(10,20,40,.08); border-radius:14px;  padding:14px}
 summary{cursor:pointer; font-weight:700}
-details p{color:var(--muted); padding:40px 0; border-top:1px solid rgba(10,20,40,.06);color:var(--muted)}
+details p{color:var(--muted); padding:40px 0; border-top:1px solid rgba(10,20,40,.06); color:var(--muted)}
 
 /* Animations */
 .reveal{opacity:0;transform:translateY(8px);transition:opacity .6s ease, transform .6s ease}
-.reveal.in{opacity:1;transform:translateY(0)}
-@media ( prefers-reduced-motion: reduce){.card:hover{transform:none}.reveal{transition:none}}
+.reveal.in{opacity:1; transform:translateY(0)}
+@media ( prefers-reduced-motion: reduce){.card:hover{ transform:none}.reveal{transition:none}}
 
 /* Search bars under header */
 #search-container{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:12px; background-color:#6200EE; color:#fff; justify-content:center}
@@ -134,20 +134,25 @@ details p{color:var(--muted); padding:40px 0; border-top:1px solid rgba(10,20,40
 html { font-size: 80%; }
    
 #countdown {
-    font-size: 2rem;
-    margin: 1rem 0 1rem 0;
+    font-size: 2rem; margin: 1rem 0 1rem 0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
-    h1 { font-size: 1.8rem; }
-    p { font-size: 1rem; }
-    #countdown { font-size: 1.5rem; }
-    .button { font-size: 1rem; padding: 0.6rem 1.2rem; }
+  h1 { font-size: 1.8rem; }
+  p { font-size: 1rem; }
+  #countdown { font-size: 1.5rem; }
+  .button { font-size: 1rem; padding: 0.6rem 1.2rem; }
     .feature { font-size: 0.95rem; }
 }
 
-  
+.store-row { display: flex; flex-direction: row; justify-content: center;  /* centers horizontally */
+  align-items: center; /* aligns vertically */
+  gap: 16px;           /* replaces <br> */
+  padding:15px; margin:0 auto; border-radius:10px;
+  max-width: fit-content;  /* keeps it tight around content */
+}
+
 ul {
   width: 90%; list-style: none;
   margin: 3px auto; padding: 0;
@@ -163,25 +168,16 @@ ul li::before {
   color: #888; line-height: 1;
 }
 
-.store-row { display: flex; flex-direction: row; justify-content: center;  /* centers horizontally */
-  align-items: center; /* aligns vertically */
-  gap: 16px;           /* replaces <br> */
-  padding: 15px; margin: 0 auto; border-radius: 10px;
-  max-width: fit-content;  /* keeps it tight around content */
-}
-  
 /* Live Status Panel */
-#live-status {
+#live-status { max-width: 85%;
       background: rgba(155,155,155,0.55);
       backdrop-filter: blur(12px);
       border-radius: 14px;
-      padding: 16px 24px;
-      max-width: 85%;
-      margin: 20px auto;
+      margin: 20px auto; padding: 16px 24px;
       box-shadow: 0 6px 16px rgba(0,0,0,0.12);
       text-align: left; /* left-align panel */
 }
-#live-status strong { display: inline-block; width: 150px; vertical-align: top; }
+#live-status strong { width: 150px; display: inline-block; vertical-align: top; }
 #live-status ul { margin: 4px 0 0 18px; padding: 0; list-style: disc; }
 #live-status pre { white-space: pre-wrap; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
 
@@ -204,7 +200,7 @@ ul li::before {
    <nav class="nav-actions">
        <a class="btn ghost" href="#features">Features</a>
      <!-- <a class="btn primary" href="https://sheildbrowser.com">Sheild</a> -->
-       <a class="btn ghost" href="#download" id="downloadButton">Download</a>  
+       <a class="btn primary" href="#download" id="downloadButton">Download</a>  
       </nav>
     </div>
 
