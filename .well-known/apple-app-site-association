@@ -1,11 +1,14 @@
 {
   "applinks": {
+    "apps": [],
     "details": [
       {
+        "appID": "7NM344W5VZ.com.sheildbrowser",
         "appIDs": [ "7NM344W5VZ.com.sheildbrowser" ],
+        "paths": [ "*" ],
         "components": [
           {
-            "/": "*",
+            "/": "/*",
             "comment": "Matches all paths on this domain"
           }
         ]
@@ -16,3 +19,4 @@
     "apps": [ "7NM344W5VZ.com.sheildbrowser" ]
   }
 }
+
