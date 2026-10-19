@@ -96,16 +96,16 @@ header {
   
 @media (min-width: 740px){
 .grid.cols-3{ grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)}}
-.card{background:var(--card);border:1px solid rgba(10,20,40,.08);border-radius: var(--radius);padding:18px; transition:transform .25s, box-shadow .25s}
+.card{ background:var(--card);border:1px solid rgba(10,20,40,.08); border-radius: var(--radius); padding:18px; transition:transform .25s, box-shadow .25s}
 .card:hover{ transform:translateY(-2px); box-shadow:0 10px 22px rgba(16,24,40,.1)}
 .icon{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--brand-1),var(--brand-2)); box-shadow:0 8px 20px rgba(91,124,250,.35)}
 .card h3{ margin:10px 0 6px; font-size:18px}
 .card p{ margin:0; color:var(--muted); font-size:15px}
 
 /* mock frame (used in articles if needed) */
-.screen{border-radius:16px; border:1px solid rgba(10,20,40,.08); overflow:hidden; background:#fff; box-shadow:0 10px 24px rgba(16,24,40,.08)}
-.screen .chrome{display:flex; gap:8px; align-items:center; padding:8px 10px; background:linear-gradient(180deg,#f9fbff,#f0f4ff); border-bottom:1px solid rgba(10,20,40,.06)}
-.dot{width:10px; height:10px; border-radius:50%; background:#d9dde7}
+.screen{ border-radius:16px; border:1px solid rgba(10,20,40,.08); overflow:hidden; background:#fff; box-shadow:0 10px 24px rgba(16,24,40,.08)}
+.screen .chrome{ display:flex; gap:8px; align-items:center; padding:8px 10px; background:linear-gradient(180deg,#f9fbff,#f0f4ff); border-bottom:1px solid rgba(10,20,40,.06)}
+.dot{ width:10px; height:10px; border-radius:50%; background:#d9dde7}
 .url{flex:1; height:32px; border-radius:8px; border:1px solid rgba(10,20,40,.1); background:#fff; padding:0 12px; display:flex; align-items:center; color:#6b7486; font-size:14px}
 
 /* Article styles */
@@ -150,10 +150,11 @@ details p{ color:var(--muted); padding:40px 0; border-top:1px solid rgba(10,20,4
     .feature { font-size: 0.95rem; }
 }
 
-.store-row { display: flex; flex-direction: row; justify-content: center;  /* centers horizontally */
+.store-row { display: flex; flex-direction: center; justify-content: center;  /* centers horizontally */
   align-items: center; /* aligns vertically */
   gap: 16px;           /* replaces <br> */
-  padding:15px; margin:0 auto; border-radius:10px;
+  padding:15px; margin:0 auto; 
+  border-radius:10px;
   max-width: fit-content;  /* keeps it tight around content */
 }
 
