@@ -185,19 +185,18 @@ ul li::before {
 
 /* blinking */
 .blinking {
-  background-color: blue;
+  background-color: inherit;
   color: white;
-  animation: blink 3s infinite;
+  animation: blink 5s infinite;
 }
 @keyframes blink {
-  0% { background-color: blue;
+  0% { background-color: inherit;
   }
   50% { background-color: transparent;
   }
-  100% { background-color: blue;
+  100% { background-color: inherit;
   }
 }
-
     
 </style>
 
@@ -249,10 +248,11 @@ ul li::before {
 </ul>
 
 <!-- Shield App download  -->
+<div class="hero">
   <section class="hero-product container">
   <h1>Shield</h1>
     <span class="tag">Fast • Private • Lightweight</span>  
-<div class="store-row">
+<!-- <div class="store-row"> -->
   <img src="/IconApp_20260512.png" style="width:100px; height: auto; border-radius: 50%; object-fit: contain;" alt="Sheild">
   <a href="https://apps.apple.com/us/app/sheild/id6753663434" target="_self">
   <img src="/appstore.png" alt="Download App Store" style="height:50px; "> </a>
