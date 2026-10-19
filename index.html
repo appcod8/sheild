@@ -41,16 +41,17 @@ header {
     
 .hero {
   height: auto; width: 98%; max-width: 500px;
-  margin:0 auto; padding: 5px;
-  display:flex; justify-content:center; 
+  margin:0 auto; padding: 0;
+  display:flex; justify-content: center; 
   align-items: center; text-align: center;
+  border-radius: 8px;
   /* color: #eee; background-color: #888;  */
 }
 .hero a { position: relative;
   z-index: 10; /* makes clickable above background/other layers */
 }
 
-/* HERO #1 — David & Goliath (separate class to avoid collisions) */
+/* HERO — David-Goliath (avoids collisions) */
 .hero-dg {
   height: 70vh;  /* full screen height 
   position: relative; */
