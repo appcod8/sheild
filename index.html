@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Shield Browser & uSheild Search. Local AI 0-Spam.</title>
-<meta name="description" content="Shield Browser & Search. Private Adblocking 0-Scpam 0-Tracking Fast Safe Secure Live Home Widgets Weather Llm AI" />
-<meta name="keywords" content="uSheild, Shield, web search engine, browser, adblocking, notracking, weather, llm Ai, dynamic, tzldm, night dark mode, secure, live, private, incognito, anonomous, private, safe, fast, secure" />
+<meta name="description" content="Shield Independent Browser & Search Engine Private Adblock 0-Scpam 0-Tracking Fast Safe Secure Live Home Widgets Weather Llm AI" />
+<meta name="keywords" content="uSheild, Shield, independent, web search engine, private browser, adblock, notracking, weather, llm Ai, dynamic, tzldm, night mode, secure, live, incognito, anonomous, private, safe, fast, secure" />
 <link rel="icon" href="icons/sheild.png" />
 <style>
 :root{
@@ -183,7 +183,23 @@ ul li::before {
 #live-status ul { margin: 4px 0 0 18px; padding: 0; list-style: disc; }
 #live-status pre { white-space: pre-wrap; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
 
-/* Search / URL Bar */
+/* blinking */
+.blinking {
+  background-color: blue;
+  color: white;
+  padding: 2px;
+  text-align: center;
+  animation: blink 2s infinite;
+}
+@keyframes blink {
+  0% { background-color: blue;
+  }
+  50% { background-color: transparent;
+  }
+  100% { background-color: blue;
+  }
+}
+
     
 </style>
 
@@ -196,12 +212,12 @@ ul li::before {
 <header>
     <div class="container nav">
       <div  class="brand" >
-        <div  class="brand-logo" aria-hidden="true"></div>
-        <a href="#top" style="padding: 0 5px 0 0; margin-left:-5px;" aria-label="SheildBrowser">Shield</a>
+        <div  class="brand-logo primary" aria-hidden="true"></div>
+       <a href="#top" style="padding: 0 5px 0 0; margin-left:-5px;" aria-label="SheildBrowser">Shield</a>
       </div> 
    <nav class="nav-actions">
       <a class="btn ghost" href="#features">Features</a>
-     <a class="btn primary" href="https://uSheild.com">Search</a>
+     <a class="btn blinking" href="https://uSheild.com">Search</a>
       <a class="btn ghost" href="#download" id="downloadButton">Download</a>  
       </nav>
     </div>
